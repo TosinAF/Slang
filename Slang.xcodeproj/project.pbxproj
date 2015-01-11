@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */; };
 		4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */; };
 		4E93B70E1A56DD0400407EE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E93B70D1A56DD0400407EE6 /* Images.xcassets */; };
-		4E93B7111A56DD0400407EE6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E93B70F1A56DD0400407EE6 /* LaunchScreen.xib */; };
 		4E93B71D1A56DD0400407EE6 /* SlangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B71C1A56DD0400407EE6 /* SlangTests.swift */; };
+		4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */; };
+		4E93B72D1A56FB3800407EE6 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72C1A56FB3800407EE6 /* BlockType.swift */; };
+		4E93B7301A56FC5000407EE6 /* SLBlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72F1A56FC5000407EE6 /* SLBlankTableViewCell.swift */; };
+		4ECA42091A57152D002B98ED /* SLBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA42081A57152D002B98ED /* SLBaseTableViewCell.swift */; };
+		4ECA420B1A57B503002B98ED /* SLVariableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA420A1A57B503002B98ED /* SLVariableTableViewCell.swift */; };
+		4ECA420F1A57B7F6002B98ED /* FiraSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */; };
+		4ECA42111A57C2A1002B98ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA42101A57C2A1002B98ED /* Extensions.swift */; };
+		4ECA42131A57DE62002B98ED /* FiraSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA42121A57DE62002B98ED /* FiraSans-Light.otf */; };
+		7A3B20D0B6A7104DC9FF854B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB170713C5264FBF6A6B4A31 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,14 +33,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLEndTableViewCell.swift; path = Language/SLEndTableViewCell.swift; sourceTree = "<group>"; };
 		4E93B7061A56DD0400407EE6 /* Slang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E93B70A1A56DD0400407EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E93B70D1A56DD0400407EE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4E93B7101A56DD0400407EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4E93B7161A56DD0400407EE6 /* SlangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E93B71B1A56DD0400407EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E93B71C1A56DD0400407EE6 /* SlangTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlangTests.swift; sourceTree = "<group>"; };
+		4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlangViewController.swift; path = Language/SlangViewController.swift; sourceTree = "<group>"; };
+		4E93B72C1A56FB3800407EE6 /* BlockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockType.swift; path = Language/BlockType.swift; sourceTree = "<group>"; };
+		4E93B72F1A56FC5000407EE6 /* SLBlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLBlankTableViewCell.swift; path = Language/SLBlankTableViewCell.swift; sourceTree = "<group>"; };
+		4ECA42081A57152D002B98ED /* SLBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLBaseTableViewCell.swift; path = Language/SLBaseTableViewCell.swift; sourceTree = "<group>"; };
+		4ECA420A1A57B503002B98ED /* SLVariableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLVariableTableViewCell.swift; path = Language/SLVariableTableViewCell.swift; sourceTree = "<group>"; };
+		4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Regular.otf"; path = "Resources/FiraSans-Regular.otf"; sourceTree = "<group>"; };
+		4ECA42101A57C2A1002B98ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4ECA42121A57DE62002B98ED /* FiraSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Light.otf"; path = "Resources/FiraSans-Light.otf"; sourceTree = "<group>"; };
+		4ECA42141A5BD962002B98ED /* Slang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Slang-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5D11A5E3BC5CBA502362DB0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CEC659C248D2A8A2AC48DBEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FB170713C5264FBF6A6B4A31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A3B20D0B6A7104DC9FF854B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,12 +74,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1404F87047EE0EF8272E28AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5D11A5E3BC5CBA502362DB0 /* Pods.debug.xcconfig */,
+				CEC659C248D2A8A2AC48DBEA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		258AFAEFDEAEC2A3359EAE2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB170713C5264FBF6A6B4A31 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E93B6FD1A56DD0400407EE6 = {
 			isa = PBXGroup;
 			children = (
 				4E93B7081A56DD0400407EE6 /* Slang */,
 				4E93B7191A56DD0400407EE6 /* SlangTests */,
 				4E93B7071A56DD0400407EE6 /* Products */,
+				1404F87047EE0EF8272E28AA /* Pods */,
+				258AFAEFDEAEC2A3359EAE2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,8 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */,
+				4ECA420C1A57B7E1002B98ED /* Resources */,
+				4E93B7281A56F9B600407EE6 /* Language */,
 				4E93B70D1A56DD0400407EE6 /* Images.xcassets */,
-				4E93B70F1A56DD0400407EE6 /* LaunchScreen.xib */,
 				4E93B7091A56DD0400407EE6 /* Supporting Files */,
 			);
 			path = Slang;
@@ -85,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				4E93B70A1A56DD0400407EE6 /* Info.plist */,
+				4ECA42141A5BD962002B98ED /* Slang-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -106,6 +149,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4E93B7281A56F9B600407EE6 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */,
+				4E93B72C1A56FB3800407EE6 /* BlockType.swift */,
+				4ECA42101A57C2A1002B98ED /* Extensions.swift */,
+				4E93B72E1A56FC1C00407EE6 /* Cells */,
+			);
+			name = Language;
+			sourceTree = "<group>";
+		};
+		4E93B72E1A56FC1C00407EE6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA42081A57152D002B98ED /* SLBaseTableViewCell.swift */,
+				4E93B72F1A56FC5000407EE6 /* SLBlankTableViewCell.swift */,
+				4ECA420A1A57B503002B98ED /* SLVariableTableViewCell.swift */,
+				4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		4ECA420C1A57B7E1002B98ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA420D1A57B7E9002B98ED /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4ECA420D1A57B7E9002B98ED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */,
+				4ECA42121A57DE62002B98ED /* FiraSans-Light.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E93B7201A56DD0400407EE6 /* Build configuration list for PBXNativeTarget "Slang" */;
 			buildPhases = (
+				27BB9B40DE91F878C2C307DF /* Check Pods Manifest.lock */,
 				4E93B7021A56DD0400407EE6 /* Sources */,
 				4E93B7031A56DD0400407EE6 /* Frameworks */,
 				4E93B7041A56DD0400407EE6 /* Resources */,
+				12638191B1535AC2CD2F225D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,8 +270,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E93B7111A56DD0400407EE6 /* LaunchScreen.xib in Resources */,
 				4E93B70E1A56DD0400407EE6 /* Images.xcassets in Resources */,
+				4ECA420F1A57B7F6002B98ED /* FiraSans-Regular.otf in Resources */,
+				4ECA42131A57DE62002B98ED /* FiraSans-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,12 +285,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12638191B1535AC2CD2F225D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27BB9B40DE91F878C2C307DF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4E93B7021A56DD0400407EE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */,
 				4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */,
+				4E93B72D1A56FB3800407EE6 /* BlockType.swift in Sources */,
+				4E93B7301A56FC5000407EE6 /* SLBlankTableViewCell.swift in Sources */,
+				4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */,
+				4ECA420B1A57B503002B98ED /* SLVariableTableViewCell.swift in Sources */,
+				4ECA42091A57152D002B98ED /* SLBaseTableViewCell.swift in Sources */,
+				4ECA42111A57C2A1002B98ED /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,17 +351,6 @@
 			targetProxy = 4E93B7171A56DD0400407EE6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4E93B70F1A56DD0400407EE6 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E93B7101A56DD0400407EE6 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4E93B71E1A56DD0400407EE6 /* Debug */ = {
@@ -318,21 +432,32 @@
 		};
 		4E93B7211A56DD0400407EE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5D11A5E3BC5CBA502362DB0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Slang/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Slang/Slang-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4E93B7221A56DD0400407EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEC659C248D2A8A2AC48DBEA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Slang/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Slang/Slang-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -389,6 +514,7 @@
 				4E93B7221A56DD0400407EE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E93B7231A56DD0400407EE6 /* Build configuration list for PBXNativeTarget "SlangTests" */ = {
 			isa = XCConfigurationList;
@@ -397,6 +523,7 @@
 				4E93B7251A56DD0400407EE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
