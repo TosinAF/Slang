@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */; };
+		4E76FD791A63220A009722A0 /* SLPrintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */; };
 		4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */; };
 		4E93B70E1A56DD0400407EE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E93B70D1A56DD0400407EE6 /* Images.xcassets */; };
 		4E93B71D1A56DD0400407EE6 /* SlangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B71C1A56DD0400407EE6 /* SlangTests.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLEndTableViewCell.swift; path = Language/SLEndTableViewCell.swift; sourceTree = "<group>"; };
+		4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLPrintTableViewCell.swift; path = Language/SLPrintTableViewCell.swift; sourceTree = "<group>"; };
 		4E93B7061A56DD0400407EE6 /* Slang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E93B70A1A56DD0400407EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				4E93B72F1A56FC5000407EE6 /* SLBlankTableViewCell.swift */,
 				4ECA420A1A57B503002B98ED /* SLVariableTableViewCell.swift */,
 				4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */,
+				4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				4ECA420B1A57B503002B98ED /* SLVariableTableViewCell.swift in Sources */,
 				4ECA42091A57152D002B98ED /* SLBaseTableViewCell.swift in Sources */,
 				4ECA42111A57C2A1002B98ED /* Extensions.swift in Sources */,
+				4E76FD791A63220A009722A0 /* SLPrintTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

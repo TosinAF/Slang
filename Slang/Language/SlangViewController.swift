@@ -41,7 +41,7 @@ extension SlangViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("end", forIndexPath: indexPath) as SLEndTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("print", forIndexPath: indexPath) as SLPrintTableViewCell
         cell.lineNumber = "\(indexPath.row + 1)"
         return cell
     }
