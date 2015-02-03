@@ -12,6 +12,8 @@ import UIKit
 // An Instance of this class should never be created
 // Unfortunately Swift dosen't support abstract classes
 
+// MARK: - SLBaseTableViewCell Class
+
 class SLBaseTableViewCell: UITableViewCell {
 
     // MARK: - Properties
@@ -115,12 +117,10 @@ class SLBaseTableViewCell: UITableViewCell {
     }
 
     func popConstraintAnimation(value: Int) -> POPSpringAnimation {
-
         let verticalConstraintAnim = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
         verticalConstraintAnim.springBounciness = 2
         verticalConstraintAnim.springSpeed = 5
         verticalConstraintAnim.toValue = value
-
         return verticalConstraintAnim
     }
 }

@@ -1,25 +1,25 @@
 //
-//  SLPrint.swift
+//  SLRepeatTableViewCell.swift
 //  Slang
 //
-//  Created by Tosin Afolabi on 11/01/2015.
+//  Created by Tosin Afolabi on 12/01/2015.
 //  Copyright (c) 2015 Tosin Afolabi. All rights reserved.
 //
 
 import UIKit
 
-// MARK: - SLPrintTableViewCell Class
+// MARK: - SLRepeatTableViewCell Class
 
-class SLPrintTableViewCell: SLBaseTableViewCell {
+class SLRepeatTableViewCell: SLBaseTableViewCell {
 
     // MARK: - Properties
 
     var firstEdit = true
     var textFieldVerticalContraint: NSLayoutConstraint?
 
-    lazy var printStatementTextField: UITextField = {
+    lazy var repeatCountTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "text"
+        textField.text = "Repeat Count"
         textField.delegate = self
         textField.textColor = UIColor.whiteColor()
         textField.font = UIFont(name: "Avenir-Light", size: 16)
@@ -30,7 +30,7 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
     }()
 
     lazy var infoLabel: UILabel = {
-        let label = self.createInfoLabel(text: "String To Print")
+        let label = self.createInfoLabel(text: "Repeat Count")
         return label
     }()
 
@@ -39,9 +39,9 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLPrint
+        type = .SLRepeat
         containerView.backgroundColor = UIColor(red:0.106, green:0.639, blue:0.612, alpha: 1)
-        containerView.addSubview(printStatementTextField)
+        containerView.addSubview(repeatCountTextField)
         containerView.addSubview(infoLabel)
 
         setNeedsUpdateConstraints()
@@ -58,23 +58,23 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
         if (!didUpdateConstraints) {
 
             let views = [
-                "textField": printStatementTextField,
+                "textField": repeatCountTextField,
                 "infoLabel": infoLabel
             ]
 
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[textField]-1-[infoLabel]", options: nil, metrics: nil, views: views))
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[textField(>=100)]", options: nil, metrics: nil, views: views))
-            containerView.addConstraint(NSLayoutConstraint(item: printStatementTextField, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
+            containerView.addConstraint(NSLayoutConstraint(item: repeatCountTextField, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
             containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
-            textFieldVerticalContraint = NSLayoutConstraint(item: printStatementTextField, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
+            textFieldVerticalContraint = NSLayoutConstraint(item: repeatCountTextField, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
             containerView.addConstraint(textFieldVerticalContraint!)
         }
-        
+
         super.updateConstraints()
     }
 }
 
-extension SLPrintTableViewCell: UITextFieldDelegate {
+extension SLRepeatTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
 
@@ -84,13 +84,14 @@ extension SLPrintTableViewCell: UITextFieldDelegate {
             textFieldVerticalContraint!.pop_addAnimation(constraintAnim, forKey: "constant")
 
             infoLabel.alpha = 1.0
-            printStatementTextField.text = ""
-            
+            repeatCountTextField.text = ""
+
             firstEdit = false
         }
     }
-
+    
     func textFieldDidEndEditing(textField: UITextField) {
         textField.trimWhitespace()
     }
 }
+

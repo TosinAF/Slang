@@ -8,12 +8,13 @@
 
 import UIKit
 
+// MARK: - SLVariableTableViewCell Class
+
 class SLVariableTableViewCell: SLBaseTableViewCell {
 
     // MARK: - Properties
 
-    var textFieldFirstEditStatus = [true, true]
-    var textFieldVerticalContraint: NSLayoutConstraint?
+    var textFieldVerticalContraint = NSLayoutConstraint()
 
     lazy var variableNameTextField: UITextField = {
         let textField = UITextField()
@@ -102,7 +103,7 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
             containerView.addConstraint(NSLayoutConstraint(item: valueInfoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: variableValueTextField, attribute: .CenterX, multiplier: 1, constant: 0))
 
             textFieldVerticalContraint = NSLayoutConstraint(item: seperatorLabel, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
-            containerView.addConstraint(textFieldVerticalContraint!)
+            containerView.addConstraint(textFieldVerticalContraint)
 
             containerView.addConstraint(NSLayoutConstraint(item: seperatorLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
         }
@@ -111,27 +112,19 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
     }
 }
 
+// MARK: - UITextFieldDelegate
+
 extension SLVariableTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
 
         let constraintAnim = popConstraintAnimation(-5)
-        textFieldVerticalContraint!.pop_addAnimation(constraintAnim, forKey: "constant")
+        textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
 
         nameInfoLabel.alpha = 1.0
         valueInfoLabel.alpha = 1.0
 
-        let editStatus = textFieldFirstEditStatus[textField.tag]
-
-        if editStatus && textField.tag == 0 {
-            variableNameTextField.text = ""
-        }
-
-        if editStatus && textField.tag == 1 {
-            variableValueTextField.text = ""
-        }
-
-        textFieldFirstEditStatus[textField.tag] = false
+        textField.text = ""
     }
 
     func textFieldDidEndEditing(textField: UITextField) {

@@ -1,22 +1,22 @@
 //
-//  SLEndTableViewCell.swift
+//  SLElseTableViewCell.swift
 //  Slang
 //
-//  Created by Tosin Afolabi on 11/01/2015.
+//  Created by Tosin Afolabi on 12/01/2015.
 //  Copyright (c) 2015 Tosin Afolabi. All rights reserved.
 //
 
 import UIKit
 
-// MARK: - SLPrintTableViewCell Class
+// MARK: - SLElseTableViewCell
 
-class SLEndTableViewCell: SLBaseTableViewCell {
+class SLElseTableViewCell: SLBaseTableViewCell {
 
     // MARK: - Properties
 
-    lazy var titleLabel: UILabel = {
+    lazy var infoLabel: UILabel = {
         let label = UILabel()
-        label.text = "END"
+        label.text = "ELSE"
         label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "Avenir-Light", size: 14)
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -28,10 +28,10 @@ class SLEndTableViewCell: SLBaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLEnd
+        type = .SLElse
         self.typeLabel.text = ""
         containerView.backgroundColor = UIColor(red:0.404, green:0.255, blue:0.447, alpha: 1)
-        containerView.addSubview(titleLabel)
+        containerView.addSubview(infoLabel)
 
         setNeedsUpdateConstraints()
     }
@@ -46,10 +46,11 @@ class SLEndTableViewCell: SLBaseTableViewCell {
 
         if (!didUpdateConstraints) {
 
-            containerView.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0))
+            containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
+            containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0))
         }
-
+        
         super.updateConstraints()
     }
 }
+

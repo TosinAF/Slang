@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - SLBlankTableViewCell Class
+
 class SLBlankTableViewCell: SLBaseTableViewCell {
 
     // MARK: - Initalizers

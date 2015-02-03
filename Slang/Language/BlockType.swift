@@ -9,23 +9,30 @@
 import Foundation
 
 enum BlockType: Int {
-    //case SLBlank = 0, SLVariable, SLIF, SLElse, SLElseIF, SLRepeat, SLEnd, SLPrint
-    case SLBlank = 0, SLVariable, SLEnd, SLPrint
+    case SLBlank = 0, SLVariable, SLIf, SLElse, SLRepeat, SLEnd, SLPrint
 
     var identifier: String {
-        let identifiers = ["blank", "variable", "end", "print"]
+        let identifiers = ["blank", "variable", "if", "else", "repeat", "end", "print"]
         return identifiers[self.rawValue]
     }
 
     var title: String {
-        let titles = ["BLANK", "VARIABLE", "END", "PRINT"]
+        let titles = ["BLANK", "VARIABLE", "IF Statement", "Else", "REPEAT", "END", "PRINT"]
         return titles[self.rawValue]
     }
 
     var tableViewCellClass: AnyClass {
-        let classes: [AnyClass] = [SLBlankTableViewCell.self, SLVariableTableViewCell.self, SLEndTableViewCell.self, SLPrintTableViewCell.self]
+        let classes: [AnyClass] = [
+            SLBlankTableViewCell.self,
+            SLVariableTableViewCell.self,
+            SLIfTableViewCell.self,
+            SLElseTableViewCell.self,
+            SLRepeatTableViewCell.self,
+            SLEndTableViewCell.self,
+            SLPrintTableViewCell.self
+        ]
         return classes[self.rawValue]
     }
 
-    static let allTypes: [BlockType] = [.SLBlank, .SLVariable, SLEnd, SLPrint]
+    static let allTypes: [BlockType] = [SLBlank, SLVariable, SLIf, SLElse, SLRepeat, SLEnd, SLPrint]
 }
