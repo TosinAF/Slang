@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A1436A7F05C83F576B3F2D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA37CA11484F902ED497EF6F /* libPods.a */; };
 		4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */; };
 		4E76FD791A63220A009722A0 /* SLPrintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */; };
 		4E76FD7B1A6353E5009722A0 /* SLRepeatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7A1A6353E5009722A0 /* SLRepeatTableViewCell.swift */; };
@@ -92,7 +91,6 @@
 				DD8C7D9C4574E041B86C95A0 /* (null) in Frameworks */,
 				96447DE6C45F2AF8094F3A6B /* (null) in Frameworks */,
 				9A4D3E50B69104874F5C8E84 /* (null) in Frameworks */,
-				3A1436A7F05C83F576B3F2D1 /* libPods.a in Frameworks */,
 				9F988080F4DCA7FD9E2AB18D /* Pods_SlangTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
