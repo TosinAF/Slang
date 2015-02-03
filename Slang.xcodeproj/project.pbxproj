@@ -24,6 +24,7 @@
 		4ECA420F1A57B7F6002B98ED /* FiraSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */; };
 		4ECA42111A57C2A1002B98ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA42101A57C2A1002B98ED /* Extensions.swift */; };
 		4ECA42131A57DE62002B98ED /* FiraSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA42121A57DE62002B98ED /* FiraSans-Light.otf */; };
+		4EFB9EB31A8196AF0074C618 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA37CA11484F902ED497EF6F /* libPods.a */; };
 		96447DE6C45F2AF8094F3A6B /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		9A4D3E50B69104874F5C8E84 /* (null) in Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Weak, ); }; };
 		9F988080F4DCA7FD9E2AB18D /* Pods_SlangTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556DA372A181B7A9EB7D92F8 /* Pods_SlangTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -88,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFB9EB31A8196AF0074C618 /* libPods.a in Frameworks */,
 				DD8C7D9C4574E041B86C95A0 /* (null) in Frameworks */,
 				96447DE6C45F2AF8094F3A6B /* (null) in Frameworks */,
 				9A4D3E50B69104874F5C8E84 /* (null) in Frameworks */,
