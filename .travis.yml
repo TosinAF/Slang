@@ -2,3 +2,6 @@ language: objective-c
 xcode_workspace: Slang.xcworkspace 
 xcode_scheme: Slang
 xcode_sdk: iphonesimulator
+
+before_install:
+  - gem install cocoapods -v '0.36.0.beta.2'
