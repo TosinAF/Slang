@@ -1,0 +1,4 @@
+language: objective-c
+xcode_workspace: Slang.xcworkspace 
+xcode_scheme: Slang
+xcode_sdk: iphonesimulator
