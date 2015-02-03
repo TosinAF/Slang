@@ -80,8 +80,8 @@ extension SLPrintTableViewCell: UITextFieldDelegate {
 
         if firstEdit {
 
-            let constraintAnim = popConstraintAnimation(-5)
-            textFieldVerticalContraint!.pop_addAnimation(constraintAnim, forKey: "constant")
+            //let constraintAnim = popConstraintAnimation(-5)
+            //textFieldVerticalContraint!.pop_addAnimation(constraintAnim, forKey: "constant")
 
             infoLabel.alpha = 1.0
             printStatementTextField.text = ""

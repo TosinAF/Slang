@@ -1,11 +1,15 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-source 'https://github.com/CocoaPods/Specs.git'
+def import_pods
+    pod 'pop'
+end
 
-xcodeproj 'Slang.xcodeproj'
+target :"Slang" do
+    import_pods
+end
 
-pod 'pop'
-pod 'Quick'
-pod 'Nimble'
-
-link_with ['Slang', 'SlangTests']
+target :"SlangTests" do
+    pod 'Quick'
+    pod 'Nimble'
+end

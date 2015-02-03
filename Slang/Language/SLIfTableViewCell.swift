@@ -137,8 +137,8 @@ extension SLIfTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
 
-        let constraintAnim = popConstraintAnimation(-5)
-        textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
+        //let constraintAnim = popConstraintAnimation(-5)
+        //textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
 
         statementOneInfoLabel.alpha = 1.0
         statementTwoInfoLabel.alpha = 1.0

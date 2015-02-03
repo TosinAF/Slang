@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import pop
+
 
 // This is an abstract class
 // An Instance of this class should never be created
@@ -117,6 +117,7 @@ class SLBaseTableViewCell: UITableViewCell {
         return label
     }
 
+
     func popConstraintAnimation(value: Int) -> POPSpringAnimation {
         let verticalConstraintAnim = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
         verticalConstraintAnim.springBounciness = 2
@@ -124,6 +125,7 @@ class SLBaseTableViewCell: UITableViewCell {
         verticalConstraintAnim.toValue = value
         return verticalConstraintAnim
     }
+
 }
 
 
