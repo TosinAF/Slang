@@ -118,8 +118,8 @@ extension SLVariableTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
 
-        //let constraintAnim = popConstraintAnimation(-5)
-        //textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
+        let constraintAnim = popConstraintAnimation(-5)
+        textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
 
         nameInfoLabel.alpha = 1.0
         valueInfoLabel.alpha = 1.0

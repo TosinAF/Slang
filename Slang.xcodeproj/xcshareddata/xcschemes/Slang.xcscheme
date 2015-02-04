@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AFA5AC84927E852CA9DC9860"
-               BuildableName = "libPods-Slang.a"
+               BlueprintIdentifier = "532D0D1DF006BE98E12B3D81"
+               BuildableName = "Pods_Slang.framework"
                BlueprintName = "Pods-Slang"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "423C7F6138615646BB4012FC"
+               BlueprintIdentifier = "A94018DB5744BBBED4FC388F"
                BuildableName = "Pods_SlangTests.framework"
                BlueprintName = "Pods-SlangTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

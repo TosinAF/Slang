@@ -7,9 +7,11 @@ end
 
 target :"Slang" do
     import_pods
+    pod 'Alamofire', '~> 1.1'
 end
 
 target :"SlangTests" do
+    import_pods
     pod 'Quick'
     pod 'Nimble'
 end

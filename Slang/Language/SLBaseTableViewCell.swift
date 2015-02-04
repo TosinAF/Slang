@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Tosin Afolabi. All rights reserved.
 //
 
-import UIKit
-
-
 // This is an abstract class
 // An Instance of this class should never be created
 // Unfortunately Swift dosen't support abstract classes
+
+import UIKit
+import pop
 
 // MARK: - SLBaseTableViewCell Class
 
