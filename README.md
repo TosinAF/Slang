@@ -1,4 +1,4 @@
-![](http://f.cl.ly/items/0r1E192C1R0b2g2Q3h2w/QuickLogo_Color.png)
+![](https://raw.githubusercontent.com/TosinAF/Slang/master/SlangDesign/SlangBanner.png)
 
 iOS app to help people learn the fundamentals of Coding
 
