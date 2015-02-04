@@ -17,7 +17,7 @@ enum BlockType: Int {
     }
 
     var title: String {
-        let titles = ["BLANK", "VARIABLE", "IF Statement", "Else", "REPEAT", "END", "PRINT"]
+        let titles = ["BLANK", "VARIABLE", "IF Statement", "ELSE", "REPEAT", "END", "PRINT"]
         return titles[self.rawValue]
     }
 
