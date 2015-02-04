@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4E3E818D1A81A94C00DCDC88 /* BlockTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E818C1A81A94C00DCDC88 /* BlockTypeSpec.swift */; };
+		4E3E81901A81DD0C00DCDC88 /* SLBlankTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E818F1A81DD0C00DCDC88 /* SLBlankTableViewCellSpec.swift */; };
+		4E3E81921A81DE0800DCDC88 /* SLVariableTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81911A81DE0800DCDC88 /* SLVariableTableViewCellSpec.swift */; };
+		4E3E81941A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81931A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift */; };
+		4E3E81961A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */; };
+		4E3E81981A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */; };
+		4E3E819A1A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */; };
 		4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */; };
 		4E76FD791A63220A009722A0 /* SLPrintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */; };
 		4E76FD7B1A6353E5009722A0 /* SLRepeatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7A1A6353E5009722A0 /* SLRepeatTableViewCell.swift */; };
 		4E76FD7D1A640D9C009722A0 /* SLElseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7C1A640D9C009722A0 /* SLElseTableViewCell.swift */; };
 		4E76FD7F1A640DB7009722A0 /* SLIfTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7E1A640DB7009722A0 /* SLIfTableViewCell.swift */; };
-		4E7CD3DC1A807BCD0031BF4A /* SLTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CD3DB1A807BCD0031BF4A /* SLTableViewCellSpec.swift */; };
+		4E7CD3DC1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CD3DB1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift */; };
 		4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */; };
 		4E93B70E1A56DD0400407EE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E93B70D1A56DD0400407EE6 /* Images.xcassets */; };
 		4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */; };
@@ -54,12 +60,18 @@
 
 /* Begin PBXFileReference section */
 		4E3E818C1A81A94C00DCDC88 /* BlockTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTypeSpec.swift; sourceTree = "<group>"; };
+		4E3E818F1A81DD0C00DCDC88 /* SLBlankTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLBlankTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E3E81911A81DE0800DCDC88 /* SLVariableTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLVariableTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E3E81931A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLEndTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLPrintTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepeatTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLIfTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLEndTableViewCell.swift; path = Language/SLEndTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLPrintTableViewCell.swift; path = Language/SLPrintTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD7A1A6353E5009722A0 /* SLRepeatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLRepeatTableViewCell.swift; path = Language/SLRepeatTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD7C1A640D9C009722A0 /* SLElseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLElseTableViewCell.swift; path = Language/SLElseTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD7E1A640DB7009722A0 /* SLIfTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLIfTableViewCell.swift; path = Language/SLIfTableViewCell.swift; sourceTree = "<group>"; };
-		4E7CD3DB1A807BCD0031BF4A /* SLTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E7CD3DB1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLElseTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E93B7061A56DD0400407EE6 /* Slang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E93B70A1A56DD0400407EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,10 +147,24 @@
 		4E3E818B1A81A93400DCDC88 /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				4E7CD3DB1A807BCD0031BF4A /* SLTableViewCellSpec.swift */,
 				4E3E818C1A81A94C00DCDC88 /* BlockTypeSpec.swift */,
+				4E3E818E1A81DCE700DCDC88 /* Cells */,
 			);
 			name = Language;
+			sourceTree = "<group>";
+		};
+		4E3E818E1A81DCE700DCDC88 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4E3E818F1A81DD0C00DCDC88 /* SLBlankTableViewCellSpec.swift */,
+				4E3E81911A81DE0800DCDC88 /* SLVariableTableViewCellSpec.swift */,
+				4E3E81931A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift */,
+				4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */,
+				4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */,
+				4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */,
+				4E7CD3DB1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		4E93B6FD1A56DD0400407EE6 = {
@@ -462,18 +488,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EFB9EBE1A819D5C0074C618 /* SlangViewController.swift in Sources */,
+				4E3E81981A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift in Sources */,
 				4EFB9EB71A819D550074C618 /* SLEndTableViewCell.swift in Sources */,
 				4EFB9EB91A819D550074C618 /* SLRepeatTableViewCell.swift in Sources */,
 				4EFB9EBB1A819D550074C618 /* SLElseTableViewCell.swift in Sources */,
 				4EFB9EB61A819D550074C618 /* SLBlankTableViewCell.swift in Sources */,
+				4E3E81921A81DE0800DCDC88 /* SLVariableTableViewCellSpec.swift in Sources */,
 				4EFB9EB51A819D4E0074C618 /* SLBaseTableViewCell.swift in Sources */,
 				4EFB9EB41A819CAE0074C618 /* SLVariableTableViewCell.swift in Sources */,
 				4EFB9EBD1A819D5A0074C618 /* BlockType.swift in Sources */,
+				4E3E81901A81DD0C00DCDC88 /* SLBlankTableViewCellSpec.swift in Sources */,
 				4EFB9EB81A819D550074C618 /* SLPrintTableViewCell.swift in Sources */,
+				4E3E81941A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift in Sources */,
+				4E3E819A1A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift in Sources */,
 				4EFB9EBA1A819D550074C618 /* SLIfTableViewCell.swift in Sources */,
 				4E3E818D1A81A94C00DCDC88 /* BlockTypeSpec.swift in Sources */,
 				4EFB9EBC1A819D580074C618 /* Extensions.swift in Sources */,
-				4E7CD3DC1A807BCD0031BF4A /* SLTableViewCellSpec.swift in Sources */,
+				4E3E81961A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift in Sources */,
+				4E7CD3DC1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,8 +14,7 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
 
     // MARK: - Properties
 
-    var firstEdit = true
-    var textFieldVerticalContraint: NSLayoutConstraint?
+    var textFieldVerticalContraint = NSLayoutConstraint()
 
     lazy var printStatementTextField: UITextField = {
         let textField = UITextField()
@@ -67,7 +66,7 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
             containerView.addConstraint(NSLayoutConstraint(item: printStatementTextField, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
             containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
             textFieldVerticalContraint = NSLayoutConstraint(item: printStatementTextField, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
-            containerView.addConstraint(textFieldVerticalContraint!)
+            containerView.addConstraint(textFieldVerticalContraint)
         }
         
         super.updateConstraints()
@@ -78,16 +77,11 @@ extension SLPrintTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
 
-        if firstEdit {
-
-            //let constraintAnim = popConstraintAnimation(-5)
-            //textFieldVerticalContraint!.pop_addAnimation(constraintAnim, forKey: "constant")
+            let constraintAnim = popConstraintAnimation(-5)
+            textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
 
             infoLabel.alpha = 1.0
-            printStatementTextField.text = ""
-            
-            firstEdit = false
-        }
+            textField.text = ""
     }
 
     func textFieldDidEndEditing(textField: UITextField) {

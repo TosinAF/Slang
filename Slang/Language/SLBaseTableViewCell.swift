@@ -117,6 +117,15 @@ class SLBaseTableViewCell: UITableViewCell {
         return label
     }
 
+    func createSeperatorLabel() -> UILabel {
+        let label = UILabel()
+        label.text = ":"
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.textColor = UIColor.whiteColor()
+        label.font = UIFont(name: "Avenir-Light", size: 14)
+        return label
+    }
+
 
     func popConstraintAnimation(value: Int) -> POPSpringAnimation {
         let verticalConstraintAnim = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
@@ -125,7 +134,6 @@ class SLBaseTableViewCell: UITableViewCell {
         verticalConstraintAnim.toValue = value
         return verticalConstraintAnim
     }
-
 }
 
 

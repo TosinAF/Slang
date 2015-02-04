@@ -29,7 +29,7 @@ class SLEndTableViewCell: SLBaseTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         type = .SLEnd
-        self.typeLabel.text = ""
+        typeLabel.alpha = 0.0
         containerView.backgroundColor = UIColor(red:0.404, green:0.255, blue:0.447, alpha: 1)
         containerView.addSubview(titleLabel)
 

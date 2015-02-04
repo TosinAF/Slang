@@ -4,7 +4,7 @@ import Nimble
 class BlockTypeSpec: QuickSpec {
     override func spec() {
 
-        describe("BlockType Enum") {
+        describe("BlockType") {
 
             it("has 7 possible types") {
                 expect(BlockType.allTypes.count) == 7

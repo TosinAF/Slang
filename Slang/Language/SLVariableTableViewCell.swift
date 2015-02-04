@@ -51,12 +51,7 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
     }()
 
     lazy var seperatorLabel: UILabel = {
-        let label = UILabel()
-        label.text = ":"
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
-        label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "Avenir-Light", size: 14)
-        return label
+        return self.createSeperatorLabel()
     }()
 
     // MARK: - Initalizers

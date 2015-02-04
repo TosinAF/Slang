@@ -120,15 +120,6 @@ class SLIfTableViewCell: SLBaseTableViewCell {
         textField.setTranslatesAutoresizingMaskIntoConstraints(false)
         return textField
     }
-
-    func createSeperatorLabel() -> UILabel {
-        let label = UILabel()
-        label.text = ":"
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
-        label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "Avenir-Light", size: 14)
-        return label
-    }
 }
 
 // MARK: - UITextFieldDelegate
