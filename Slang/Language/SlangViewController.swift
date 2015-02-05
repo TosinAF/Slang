@@ -8,7 +8,15 @@
 
 import UIKit
 
-class SlangViewController: UITableViewController {
+class SlangViewController: UIViewController {
+
+    // MARK: - Properties
+
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +49,7 @@ extension SlangViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("if", forIndexPath: indexPath) as SLIfTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("repeat", forIndexPath: indexPath) as SLRepeatTableViewCell
         cell.lineNumber = "\(indexPath.row + 1)"
         return cell
     }
