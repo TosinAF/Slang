@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 enum BlockType: Int {
-    case SLBlank = 0, SLVariable, SLIf, SLElse, SLRepeat, SLEnd, SLPrint
+    case SLBlank = 0, SLVariable, SLRepeat, SLIf, SLElse, SLEnd, SLPrint
 
     var identifier: String {
-        let identifiers = ["blank", "variable", "if", "else", "repeat", "end", "print"]
+        let identifiers = ["blank", "variable", "repeat", "if", "else", "end", "print"]
         return identifiers[self.rawValue]
     }
 
     var title: String {
-        let titles = ["BLANK", "VARIABLE", "IF Statement", "ELSE", "REPEAT", "END", "PRINT"]
+        let titles = ["BLANK", "VARIABLE", "REPEAT", "IF Statement", "ELSE", "END", "PRINT"]
         return titles[self.rawValue]
     }
 
@@ -26,9 +26,9 @@ enum BlockType: Int {
         let classes: [AnyClass] = [
             SLBlankTableViewCell.self,
             SLVariableTableViewCell.self,
+            SLRepeatTableViewCell.self,
             SLIfTableViewCell.self,
             SLElseTableViewCell.self,
-            SLRepeatTableViewCell.self,
             SLEndTableViewCell.self,
             SLPrintTableViewCell.self
         ]
@@ -39,14 +39,14 @@ enum BlockType: Int {
         let colors = [
             UIColor.SLBlankColor(),
             UIColor.SLVariableColor(),
+            UIColor.SLRepeatColor(),
             UIColor.SLIfColor(),
             UIColor.SLElseColor(),
-            UIColor.SLRepeatColor(),
             UIColor.SLEndColor(),
             UIColor.SLPrintColor()
         ]
         return colors[self.rawValue]
     }
 
-    static let allTypes: [BlockType] = [SLBlank, SLVariable, SLIf, SLElse, SLRepeat, SLEnd, SLPrint]
+    static let allTypes: [BlockType] = [SLBlank, SLVariable, SLRepeat, SLIf, SLElse, SLEnd, SLPrint]
 }

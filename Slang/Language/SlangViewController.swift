@@ -32,7 +32,6 @@ class SlangViewController: UIViewController {
         var blocks = [String: DraggableBlock]()
         for type in BlockType.allTypes {
             let block = DraggableBlock(type: type)
-            block.setTranslatesAutoresizingMaskIntoConstraints(false)
             blocks[type.identifier] = block
         }
         return blocks
@@ -66,18 +65,36 @@ class SlangViewController: UIViewController {
 
     func layoutBlocks() {
 
-        var views = blocks as [String: UIView]
-        views["tableView"] = tableView
+        let columnLength = 3
+        let horizontalSpacing: CGFloat = 10
+        let verticalSpacing: CGFloat = 20
+        let blockWidth: CGFloat = iPhone6Or6Plus ? 106.0 : 88.0
+        let blockHeight: CGFloat = 35.0
 
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[blank(==variable)]-[variable]-[repeat(==variable)]-20-|", options: .AlignAllCenterY, metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[if(==else)]-[else]-[end(==else)]-20-|", options: .AlignAllCenterY, metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[print(==else)]", options: .AlignAllCenterY, metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[tableView]-30-[blank]-20-[if]-20-[print]", options: nil, metrics: nil, views: views))
+        var posX: CGFloat = 20.0
+        var posY: CGFloat = self.view.frame.size.height * 0.5 + 30
 
-        let printBlock = blocks[BlockType.SLPrint.identifier]!
-        constrain(printBlock) { printBlock in
-            printBlock.centerX == printBlock.superview!.centerX; return
+        for i in [0,3] {
+
+            for j in 0..<columnLength {
+                let type = BlockType(rawValue: j + i)!
+                let block = blocks[type.identifier]!
+                let frame = CGRectMake(posX, posY, blockWidth, blockHeight)
+                block.frame = frame
+                posX += (blockWidth + horizontalSpacing)
+            }
+
+            posX = 20
+            posY += (blockHeight + verticalSpacing)
         }
+
+        // Final Block, 7 Blocks in total
+        // so this goes in the center of the last row
+        posX += blockWidth + horizontalSpacing
+        let frame = CGRectMake(posX, posY, blockWidth, blockHeight)
+        let type = BlockType.SLPrint
+        let block = blocks[type.identifier]!
+        block.frame = frame
     }
 }
 
