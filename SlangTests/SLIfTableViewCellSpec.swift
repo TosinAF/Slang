@@ -40,7 +40,7 @@ class SLIfTableViewCellSpec: QuickSpec {
             describe("textFields") {
                 it("should have placeholders") {
                     expect(cell.statementOneTextField.text.utf16Count) != 0
-                    expect(cell.statmentTwoTextField.text.utf16Count) != 0
+                    expect(cell.statementTwoTextField.text.utf16Count) != 0
                     expect(cell.conditionOperatorTextField.text.utf16Count) != 0
                 }
             }
@@ -78,7 +78,7 @@ class SLIfTableViewCellSpec: QuickSpec {
 
                 describe("statmentTwoTextField") {
                     it("should still have a placeholder") {
-                        expect(cell.statmentTwoTextField.text.utf16Count) != 0
+                        expect(cell.statementTwoTextField.text.utf16Count) != 0
                     }
                 }
 
@@ -92,11 +92,11 @@ class SLIfTableViewCellSpec: QuickSpec {
             describe("statmentTwoTextFieldEdited") {
 
                 beforeEach {
-                    cell.textFieldDidBeginEditing(cell.statmentTwoTextField)
+                    cell.textFieldDidBeginEditing(cell.statementTwoTextField)
                 }
 
                 it("should be empty") {
-                    expect(cell.statmentTwoTextField.text.utf16Count) == 0
+                    expect(cell.statementTwoTextField.text.utf16Count) == 0
                 }
 
                 describe("statmentOneTextField") {
@@ -130,7 +130,7 @@ class SLIfTableViewCellSpec: QuickSpec {
 
                 describe("statmentTwoTextField") {
                     it("should still have a placeholder") {
-                        expect(cell.statmentTwoTextField.text.utf16Count) != 0
+                        expect(cell.statementTwoTextField.text.utf16Count) != 0
                     }
                 }
             }

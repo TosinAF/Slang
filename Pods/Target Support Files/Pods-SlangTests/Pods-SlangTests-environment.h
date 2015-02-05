@@ -6,6 +6,12 @@
 // project.
 
 
+// Cartography
+#define COCOAPODS_POD_AVAILABLE_Cartography
+#define COCOAPODS_VERSION_MAJOR_Cartography 0
+#define COCOAPODS_VERSION_MINOR_Cartography 1
+#define COCOAPODS_VERSION_PATCH_Cartography 1
+
 // Nimble
 #define COCOAPODS_POD_AVAILABLE_Nimble
 #define COCOAPODS_VERSION_MAJOR_Nimble 0

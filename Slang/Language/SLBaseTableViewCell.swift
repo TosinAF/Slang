@@ -126,7 +126,6 @@ class SLBaseTableViewCell: UITableViewCell {
         return label
     }
 
-
     func popConstraintAnimation(value: Int) -> POPSpringAnimation {
         let verticalConstraintAnim = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
         verticalConstraintAnim.springBounciness = 2

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 // MARK: - SLPrintTableViewCell Class
 
@@ -63,10 +64,12 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
 
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[textField]-1-[infoLabel]", options: nil, metrics: nil, views: views))
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[textField(>=100)]", options: nil, metrics: nil, views: views))
-            containerView.addConstraint(NSLayoutConstraint(item: printStatementTextField, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
-            textFieldVerticalContraint = NSLayoutConstraint(item: printStatementTextField, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
-            containerView.addConstraint(textFieldVerticalContraint)
+
+            constrain(printStatementTextField, infoLabel) { view, view2 in
+                view.centerX == view.superview!.centerX
+                view2.centerX == view2.superview!.centerX
+                self.textFieldVerticalContraint = (view.centerY == view.superview!.centerY)
+            }
         }
         
         super.updateConstraints()

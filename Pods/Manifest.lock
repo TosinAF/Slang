@@ -1,17 +1,17 @@
 PODS:
-  - Alamofire (1.1.4)
+  - Cartography (0.1.1)
   - Nimble (0.3.0)
   - pop (1.0.7)
   - Quick (0.2.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.1)
+  - Cartography
   - Nimble
   - pop
   - Quick
 
 SPEC CHECKSUMS:
-  Alamofire: 524225da382071ee3e6d0badd0ee4b4dc36740de
+  Cartography: e625895e543d2316c782486c3970b30be4271391
   Nimble: a4d9d978129e83d73e33b7d8bce57443bd556068
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   Quick: 7b89ff625e72ef931c2a9ef2f25ac3a9d2457763

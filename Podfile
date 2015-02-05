@@ -3,11 +3,11 @@ platform :ios, '8.0'
 
 def import_pods
     pod 'pop'
+    pod 'Cartography'
 end
 
 target :"Slang" do
     import_pods
-    pod 'Alamofire', '~> 1.1'
 end
 
 target :"SlangTests" do

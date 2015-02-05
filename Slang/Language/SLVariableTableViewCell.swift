@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 // MARK: - SLVariableTableViewCell Class
 
@@ -90,17 +91,21 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
             ]
 
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[name(>=30)]-10-[seperator]-10-[value(>=30)]", options: .AlignAllCenterY, metrics: nil, views: views))
-
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[name]-1-[nameIndicator]", options: nil, metrics: nil, views: views))
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[value]-1-[valueIndicator]", options: nil, metrics: nil, views: views))
 
-            containerView.addConstraint(NSLayoutConstraint(item: nameInfoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: variableNameTextField, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(NSLayoutConstraint(item: valueInfoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: variableValueTextField, attribute: .CenterX, multiplier: 1, constant: 0))
+            constrain(nameInfoLabel, variableNameTextField) { nameInfoLabel, variableNameTextField in
+                nameInfoLabel.centerX == variableNameTextField.centerX; return
+            }
 
-            textFieldVerticalContraint = NSLayoutConstraint(item: seperatorLabel, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
-            containerView.addConstraint(textFieldVerticalContraint)
+            constrain(valueInfoLabel, variableValueTextField) { valueInfoLabel, variableValueTextField in
+                valueInfoLabel.centerX == variableValueTextField.centerX; return
+            }
 
-            containerView.addConstraint(NSLayoutConstraint(item: seperatorLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
+            constrain(seperatorLabel) { seperatorLabel in
+                seperatorLabel.centerX == seperatorLabel.superview!.centerX; return
+                self.textFieldVerticalContraint = (seperatorLabel.centerY == seperatorLabel.superview!.centerY)
+            }
         }
         
         super.updateConstraints()

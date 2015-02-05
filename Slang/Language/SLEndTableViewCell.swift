@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 // MARK: - SLPrintTableViewCell Class
 
@@ -46,8 +47,11 @@ class SLEndTableViewCell: SLBaseTableViewCell {
 
         if (!didUpdateConstraints) {
 
-            containerView.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0))
+            layout(titleLabel) { titleLabel in
+                titleLabel.centerX == titleLabel.superview!.centerX
+                titleLabel.centerY == titleLabel.superview!.centerY
+            }
+
         }
 
         super.updateConstraints()

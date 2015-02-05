@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 // MARK: - SLElseTableViewCell
 
@@ -14,7 +15,7 @@ class SLElseTableViewCell: SLBaseTableViewCell {
 
     // MARK: - Properties
 
-    lazy var infoLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "ELSE"
         label.textColor = UIColor.whiteColor()
@@ -31,7 +32,7 @@ class SLElseTableViewCell: SLBaseTableViewCell {
         type = .SLElse
         typeLabel.alpha = 0.0
         containerView.backgroundColor = UIColor(red:0.404, green:0.255, blue:0.447, alpha: 1)
-        containerView.addSubview(infoLabel)
+        containerView.addSubview(titleLabel)
 
         setNeedsUpdateConstraints()
     }
@@ -46,8 +47,10 @@ class SLElseTableViewCell: SLBaseTableViewCell {
 
         if (!didUpdateConstraints) {
 
-            containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0))
+            layout(titleLabel) { titleLabel in
+                titleLabel.centerX == titleLabel.superview!.centerX
+                titleLabel.centerY == titleLabel.superview!.centerY
+            }
         }
         
         super.updateConstraints()

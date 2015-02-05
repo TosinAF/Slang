@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 // MARK: - SLIfTableViewCell Class
 
@@ -26,7 +27,7 @@ class SLIfTableViewCell: SLBaseTableViewCell {
         return label
     }()
 
-    lazy var statmentTwoTextField: UITextField = {
+    lazy var statementTwoTextField: UITextField = {
         let textField = self.createStatementTextfield(text: "S2", tag: 1)
         return textField
     }()
@@ -55,7 +56,7 @@ class SLIfTableViewCell: SLBaseTableViewCell {
         containerView.backgroundColor = UIColor(red:0.106, green:0.639, blue:0.612, alpha: 1)
         containerView.addSubview(statementOneTextField)
         containerView.addSubview(statementOneInfoLabel)
-        containerView.addSubview(statmentTwoTextField)
+        containerView.addSubview(statementTwoTextField)
         containerView.addSubview(statementTwoInfoLabel)
         containerView.addSubview(conditionOperatorTextField)
         containerView.addSubview(conditionOperatorInfoLabel)
@@ -82,7 +83,7 @@ class SLIfTableViewCell: SLBaseTableViewCell {
             let views = [
                 "statementOne": statementOneTextField,
                 "statementOneInfoLabel": statementOneInfoLabel,
-                "statementTwo": statmentTwoTextField,
+                "statementTwo": statementTwoTextField,
                 "statementTwoInfoLabel": statementTwoInfoLabel,
                 "conditionOperatorTextField": conditionOperatorTextField,
                 "conditionOperatorInfoLabel": conditionOperatorInfoLabel,
@@ -90,18 +91,28 @@ class SLIfTableViewCell: SLBaseTableViewCell {
                 "seperatorLabelTwo": seperatorLabelTwo
             ]
 
-            textFieldVerticalContraint = NSLayoutConstraint(item: conditionOperatorTextField, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
-            containerView.addConstraint(NSLayoutConstraint(item: conditionOperatorTextField, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(textFieldVerticalContraint)
-
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[statementOne(>=30)]-10-[seperatorLabelOne]-10-[conditionOperatorTextField]-10-[seperatorLabelTwo]-10-[statementTwo(>=30)]", options: .AlignAllCenterY, metrics: nil, views: views))
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[statementOne]-1-[statementOneInfoLabel]", options: nil, metrics: nil, views: views))
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[statementTwo]-1-[statementTwoInfoLabel]", options: nil, metrics: nil, views: views))
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[conditionOperatorTextField]-1-[conditionOperatorInfoLabel]", options: nil, metrics: nil, views: views))
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[conditionOperatorInfoLabel]", options: nil, metrics: nil, views: views))
-            containerView.addConstraint(NSLayoutConstraint(item: statementOneInfoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: statementOneTextField, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(NSLayoutConstraint(item: statementTwoInfoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: statmentTwoTextField, attribute: .CenterX, multiplier: 1, constant: 0))
-            containerView.addConstraint(NSLayoutConstraint(item: conditionOperatorInfoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: conditionOperatorTextField, attribute: .CenterX, multiplier: 1, constant: 0))
+
+            constrain(conditionOperatorTextField) { condTextField in
+                condTextField.centerX == condTextField.superview!.centerX
+                self.textFieldVerticalContraint = (condTextField.centerY == condTextField.superview!.centerY)
+            }
+
+            constrain(statementOneInfoLabel, statementOneTextField) { info, textField in
+                info.centerX == textField.centerX; return
+            }
+
+            constrain(statementTwoInfoLabel, statementTwoTextField) { info, textField in
+                info.centerX == textField.centerX; return
+            }
+
+            constrain(conditionOperatorInfoLabel, conditionOperatorTextField) { info, textField in
+                info.centerX == textField.centerX; return
+            }
         }
         
         super.updateConstraints()
