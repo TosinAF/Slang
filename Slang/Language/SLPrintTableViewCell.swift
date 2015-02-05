@@ -77,11 +77,11 @@ extension SLPrintTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
 
-            let constraintAnim = popConstraintAnimation(-5)
-            textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
+        let constraintAnim = popConstraintAnimation(-5)
+        textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
 
-            infoLabel.alpha = 1.0
-            textField.text = ""
+        infoLabel.alpha = 1.0
+        textField.text = ""
     }
 
     func textFieldDidEndEditing(textField: UITextField) {

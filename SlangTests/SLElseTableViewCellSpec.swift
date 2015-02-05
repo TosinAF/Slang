@@ -3,10 +3,18 @@ import Nimble
 
 class SLElseTableViewCellTest: QuickSpec {
     override func spec() {
+        let cell = SLElseTableViewCell(style: .Default, reuseIdentifier: nil)
+        let type = BlockType.SLElse
+
         describe("type") {
             it("is SLElse") {
-                let cell = SLElseTableViewCell(style: .Default, reuseIdentifier: nil)
-                expect(cell.type) == BlockType.SLElse
+                expect(cell.type) == type
+            }
+        }
+
+        describe("typeLabel") {
+            it("should not be visible") {
+                expect(cell.typeLabel.alpha) == 0.0
             }
         }
     }

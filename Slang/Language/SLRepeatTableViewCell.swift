@@ -14,12 +14,11 @@ class SLRepeatTableViewCell: SLBaseTableViewCell {
 
     // MARK: - Properties
 
-    var firstEdit = true
-    var textFieldVerticalContraint: NSLayoutConstraint?
+    var textFieldVerticalContraint = NSLayoutConstraint()
 
     lazy var repeatCountTextField: UITextField = {
         let textField = UITextField()
-        textField.text = "Repeat Count"
+        textField.text = "Count"
         textField.delegate = self
         textField.textColor = UIColor.whiteColor()
         textField.font = UIFont(name: "Avenir-Light", size: 16)
@@ -67,7 +66,7 @@ class SLRepeatTableViewCell: SLBaseTableViewCell {
             containerView.addConstraint(NSLayoutConstraint(item: repeatCountTextField, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
             containerView.addConstraint(NSLayoutConstraint(item: infoLabel, attribute: .CenterX, relatedBy: .Equal, toItem: containerView, attribute: .CenterX, multiplier: 1, constant: 0))
             textFieldVerticalContraint = NSLayoutConstraint(item: repeatCountTextField, attribute: .CenterY, relatedBy: .Equal, toItem: containerView, attribute: .CenterY, multiplier: 1, constant: 0)
-            containerView.addConstraint(textFieldVerticalContraint!)
+            containerView.addConstraint(textFieldVerticalContraint)
         }
 
         super.updateConstraints()
@@ -78,16 +77,11 @@ extension SLRepeatTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
 
-        if firstEdit {
+        let constraintAnim = popConstraintAnimation(-5)
+        textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
 
-            //let constraintAnim = popConstraintAnimation(-5)
-            //textFieldVerticalContraint!.pop_addAnimation(constraintAnim, forKey: "constant")
-
-            infoLabel.alpha = 1.0
-            repeatCountTextField.text = ""
-
-            firstEdit = false
-        }
+        infoLabel.alpha = 1.0
+        repeatCountTextField.text = ""
     }
     
     func textFieldDidEndEditing(textField: UITextField) {

@@ -38,8 +38,6 @@ class SLVariableTableViewCellSpec: QuickSpec {
 
             describe("textFields") {
                 it("should have placeholders") {
-                    println(cell.variableNameTextField.text)
-                    cell.variableNameTextField.text = "hhfh"
                     expect(cell.variableNameTextField.text.utf16Count) != 0
                     expect(cell.variableValueTextField.text.utf16Count) != 0
                 }
@@ -56,7 +54,16 @@ class SLVariableTableViewCellSpec: QuickSpec {
                 }
             }
 
-            describe("variable name textField") {
+            describe("textFields") {
+                it("should have no whitespace after editing completed") {
+                    cell.textFieldDidBeginEditing(cell.variableNameTextField)
+                    cell.variableNameTextField.text = "  x  "
+                    cell.textFieldDidEndEditing(cell.variableNameTextField)
+                    expect(cell.variableNameTextField.text) == "x"
+                }
+            }
+
+            describe("variableNameTextFieldEdited") {
 
                 beforeEach {
                     cell.textFieldDidBeginEditing(cell.variableNameTextField)
@@ -73,7 +80,7 @@ class SLVariableTableViewCellSpec: QuickSpec {
                 }
             }
 
-            describe("variable value textField") {
+            describe("variableValueTextFieldEdited") {
 
                 beforeEach {
                     cell.textFieldDidBeginEditing(cell.variableValueTextField)

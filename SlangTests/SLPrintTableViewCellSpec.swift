@@ -32,8 +32,7 @@ class SLPrintTableViewCellSpec: QuickSpec {
 
             describe("infoLabel") {
                 it("should not be visible") {
-                    let cell2 = SLPrintTableViewCell(style: .Default, reuseIdentifier: "identifier")
-                    expect(cell2.infoLabel.alpha) == 0.0
+                    expect(cell.infoLabel.alpha) == 0.0
                 }
             }
 
@@ -59,6 +58,17 @@ class SLPrintTableViewCellSpec: QuickSpec {
             describe("textField") {
                 it("should be empty") {
                     expect(cell.printStatementTextField.text.utf16Count) == 0
+                }
+            }
+        }
+
+        context("textField has finished editing") {
+            describe("textField") {
+                it("should have no whitespace after editing completed") {
+                    cell.textFieldDidBeginEditing(cell.printStatementTextField)
+                    cell.printStatementTextField.text = "  x  "
+                    cell.textFieldDidEndEditing(cell.printStatementTextField)
+                    expect(cell.printStatementTextField.text) == "x"
                 }
             }
         }
