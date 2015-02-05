@@ -19,11 +19,10 @@ class SLBaseTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
-    let horizontalPadding = 30
-
     var type: BlockType = .SLBlank {
         willSet(newType) {
             typeLabel.text = newType.title
+            containerView.backgroundColor = newType.color
         }
     }
     var didUpdateConstraints = false
@@ -88,11 +87,7 @@ class SLBaseTableViewCell: UITableViewCell {
                 "container": containerView
             ]
 
-            let metrics = [
-                "hPadding": horizontalPadding
-            ]
-
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-(hPadding)-[numberLabel]-10-[container]-(hPadding)-|", options: nil, metrics: metrics, views: views))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-25-[numberLabel]-10-[container]-30-|", options: nil, metrics: nil, views: views))
             contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[container]-10-|", options: nil, metrics: nil, views: views))
             contentView.addConstraint(NSLayoutConstraint(item: numberLabel, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1, constant: 0))
 
@@ -106,6 +101,17 @@ class SLBaseTableViewCell: UITableViewCell {
     }
 
     // MARK: - Utility Functions
+
+    func createTextfield(#placeholder: String, tag: Int) -> UITextField {
+        let textField = UITextField()
+        textField.placeholder = placeholder
+        textField.textColor = UIColor.whiteColor()
+        textField.font = UIFont(name: "Avenir-Light", size: 14)
+        textField.textAlignment = .Center
+        textField.tag = tag
+        textField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return textField
+    }
 
     func createInfoLabel(#text: String) -> UILabel {
         let label = UILabel()

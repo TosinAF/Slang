@@ -35,13 +35,6 @@ class SLVariableTableViewCellSpec: QuickSpec {
                     expect(cell.valueInfoLabel.alpha) == 0.0
                 }
             }
-
-            describe("textFields") {
-                it("should have placeholders") {
-                    expect(cell.variableNameTextField.text.utf16Count) != 0
-                    expect(cell.variableValueTextField.text.utf16Count) != 0
-                }
-            }
         }
 
         context("one or more of the textFields has been edited") {
@@ -60,40 +53,6 @@ class SLVariableTableViewCellSpec: QuickSpec {
                     cell.variableNameTextField.text = "  x  "
                     cell.textFieldDidEndEditing(cell.variableNameTextField)
                     expect(cell.variableNameTextField.text) == "x"
-                }
-            }
-
-            describe("variableNameTextFieldEdited") {
-
-                beforeEach {
-                    cell.textFieldDidBeginEditing(cell.variableNameTextField)
-                }
-
-                it("should be empty") {
-                    expect(cell.variableNameTextField.text.utf16Count) == 0
-                }
-
-                describe("variable value textField") {
-                    it("should still have a placeholder") {
-                        expect(cell.variableValueTextField.text.utf16Count) != 0
-                    }
-                }
-            }
-
-            describe("variableValueTextFieldEdited") {
-
-                beforeEach {
-                    cell.textFieldDidBeginEditing(cell.variableValueTextField)
-                }
-
-                it("should be empty") {
-                    expect(cell.variableValueTextField.text.utf16Count) == 0
-                }
-
-                describe("variable name textField") {
-                    it("should still have a placeholder") {
-                        expect(cell.variableNameTextField.text.utf16Count) != 0
-                    }
                 }
             }
         }

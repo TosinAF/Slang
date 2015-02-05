@@ -29,35 +29,18 @@ class SLPrintTableViewCellSpec: QuickSpec {
         }
 
         context("textField not yet edited") {
-
             describe("infoLabel") {
                 it("should not be visible") {
                     expect(cell.infoLabel.alpha) == 0.0
                 }
             }
-
-            describe("textField") {
-                it("should have a placeholder") {
-                    expect(cell.printStatementTextField.text.utf16Count) != 0
-                }
-            }
         }
 
         context("textField has been edited") {
-
-            beforeEach {
-                cell.textFieldDidBeginEditing(cell.printStatementTextField)
-            }
-
             describe("infoLabel") {
                 it("should be visible") {
+                    cell.textFieldDidBeginEditing(cell.printStatementTextField)
                     expect(cell.infoLabel.alpha) == 1.0
-                }
-            }
-
-            describe("textField") {
-                it("should be empty") {
-                    expect(cell.printStatementTextField.text.utf16Count) == 0
                 }
             }
         }

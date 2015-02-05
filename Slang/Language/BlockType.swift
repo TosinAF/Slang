@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum BlockType: Int {
     case SLBlank = 0, SLVariable, SLIf, SLElse, SLRepeat, SLEnd, SLPrint
@@ -32,6 +33,19 @@ enum BlockType: Int {
             SLPrintTableViewCell.self
         ]
         return classes[self.rawValue]
+    }
+
+    var color: UIColor {
+        let colors = [
+            UIColor.SLBlankColor(),
+            UIColor.SLVariableColor(),
+            UIColor.SLIfColor(),
+            UIColor.SLElseColor(),
+            UIColor.SLRepeatColor(),
+            UIColor.SLEndColor(),
+            UIColor.SLPrintColor()
+        ]
+        return colors[self.rawValue]
     }
 
     static let allTypes: [BlockType] = [SLBlank, SLVariable, SLIf, SLElse, SLRepeat, SLEnd, SLPrint]

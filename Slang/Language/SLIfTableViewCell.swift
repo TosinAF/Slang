@@ -18,7 +18,8 @@ class SLIfTableViewCell: SLBaseTableViewCell {
     var textFieldVerticalContraint = NSLayoutConstraint()
 
     lazy var statementOneTextField: UITextField = {
-        let textField = self.createStatementTextfield(text: "S1", tag: 0)
+        let textField = self.createTextfield(placeholder: "S1", tag: 0)
+        textField.delegate = self
         return textField
     }()
 
@@ -28,7 +29,8 @@ class SLIfTableViewCell: SLBaseTableViewCell {
     }()
 
     lazy var statementTwoTextField: UITextField = {
-        let textField = self.createStatementTextfield(text: "S2", tag: 1)
+        let textField = self.createTextfield(placeholder: "S2", tag: 1)
+        textField.delegate = self
         return textField
     }()
 
@@ -38,7 +40,8 @@ class SLIfTableViewCell: SLBaseTableViewCell {
     }()
 
     lazy var conditionOperatorTextField: UITextField = {
-        let textField = self.createStatementTextfield(text: "==", tag: 2)
+        let textField = self.createTextfield(placeholder: "==", tag: 2)
+        textField.delegate = self
         return textField
     }()
 
@@ -53,7 +56,6 @@ class SLIfTableViewCell: SLBaseTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         type = .SLIf
-        containerView.backgroundColor = UIColor(red:0.106, green:0.639, blue:0.612, alpha: 1)
         containerView.addSubview(statementOneTextField)
         containerView.addSubview(statementOneInfoLabel)
         containerView.addSubview(statementTwoTextField)
@@ -117,20 +119,6 @@ class SLIfTableViewCell: SLBaseTableViewCell {
         
         super.updateConstraints()
     }
-
-    // MARK: - Utility Functions
-
-    func createStatementTextfield(#text: String, tag: Int) -> UITextField {
-        let textField = UITextField()
-        textField.text = text
-        textField.textColor = UIColor.whiteColor()
-        textField.font = UIFont(name: "Avenir-Light", size: 14)
-        textField.textAlignment = .Center
-        textField.tag = tag
-        textField.delegate = self
-        textField.setTranslatesAutoresizingMaskIntoConstraints(false)
-        return textField
-    }
 }
 
 // MARK: - UITextFieldDelegate
@@ -138,15 +126,11 @@ class SLIfTableViewCell: SLBaseTableViewCell {
 extension SLIfTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
-
         let constraintAnim = popConstraintAnimation(-5)
         textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
-
         statementOneInfoLabel.alpha = 1.0
         statementTwoInfoLabel.alpha = 1.0
         conditionOperatorInfoLabel.alpha = 1.0
-
-        textField.text = ""
     }
 
     func textFieldDidEndEditing(textField: UITextField) {

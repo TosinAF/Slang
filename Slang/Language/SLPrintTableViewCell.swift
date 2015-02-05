@@ -18,14 +18,8 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
     var textFieldVerticalContraint = NSLayoutConstraint()
 
     lazy var printStatementTextField: UITextField = {
-        let textField = UITextField()
-        textField.text = "text"
+        let textField = self.createTextfield(placeholder: "text", tag: 0)
         textField.delegate = self
-        textField.textColor = UIColor.whiteColor()
-        textField.font = UIFont(name: "Avenir-Light", size: 16)
-        textField.textAlignment = .Center
-        textField.tag = 0
-        textField.setTranslatesAutoresizingMaskIntoConstraints(false)
         return textField
     }()
 
@@ -40,7 +34,6 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         type = .SLPrint
-        containerView.backgroundColor = UIColor(red:0.106, green:0.639, blue:0.612, alpha: 1)
         containerView.addSubview(printStatementTextField)
         containerView.addSubview(infoLabel)
 
@@ -79,12 +72,9 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
 extension SLPrintTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
-
         let constraintAnim = popConstraintAnimation(-5)
         textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
-
         infoLabel.alpha = 1.0
-        textField.text = ""
     }
 
     func textFieldDidEndEditing(textField: UITextField) {

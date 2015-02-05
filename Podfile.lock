@@ -3,17 +3,20 @@ PODS:
   - Nimble (0.3.0)
   - pop (1.0.7)
   - Quick (0.2.2)
+  - Reveal-iOS-SDK (1.5.0)
 
 DEPENDENCIES:
   - Cartography
   - Nimble
   - pop
   - Quick
+  - Reveal-iOS-SDK
 
 SPEC CHECKSUMS:
   Cartography: e625895e543d2316c782486c3970b30be4271391
   Nimble: a4d9d978129e83d73e33b7d8bce57443bd556068
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   Quick: 7b89ff625e72ef931c2a9ef2f25ac3a9d2457763
+  Reveal-iOS-SDK: b6d94eb78d84ebd2e3182063577975561cd6dbd9
 
 COCOAPODS: 0.36.0.beta.2

@@ -24,9 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+        setup()
+        //UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
         window.makeKeyAndVisible()
         return true
+    }
+
+    func setup() {
+        UITextField.appearance().tintColor = UIColor.whiteColor()
     }
 }
 

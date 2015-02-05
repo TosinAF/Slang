@@ -8,6 +8,7 @@ end
 
 target :"Slang" do
     import_pods
+    pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 end
 
 target :"SlangTests" do

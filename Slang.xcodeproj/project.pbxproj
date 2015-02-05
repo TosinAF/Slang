@@ -14,6 +14,8 @@
 		4E3E81961A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */; };
 		4E3E81981A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */; };
 		4E3E819A1A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */; };
+		4E6A27F41A83462300C06761 /* DraggableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A27F31A83462300C06761 /* DraggableBlock.swift */; };
+		4E6A27F51A83482800C06761 /* DraggableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A27F31A83462300C06761 /* DraggableBlock.swift */; };
 		4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */; };
 		4E76FD791A63220A009722A0 /* SLPrintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */; };
 		4E76FD7B1A6353E5009722A0 /* SLRepeatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7A1A6353E5009722A0 /* SLRepeatTableViewCell.swift */; };
@@ -66,6 +68,7 @@
 		4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLPrintTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepeatTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLIfTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E6A27F31A83462300C06761 /* DraggableBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DraggableBlock.swift; path = Language/DraggableBlock.swift; sourceTree = "<group>"; };
 		4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLEndTableViewCell.swift; path = Language/SLEndTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLPrintTableViewCell.swift; path = Language/SLPrintTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD7A1A6353E5009722A0 /* SLRepeatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLRepeatTableViewCell.swift; path = Language/SLRepeatTableViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +170,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		4E6A27F21A8345DA00C06761 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E6A27F31A83462300C06761 /* DraggableBlock.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		4E93B6FD1A56DD0400407EE6 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +242,7 @@
 				4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */,
 				4E93B72C1A56FB3800407EE6 /* BlockType.swift */,
 				4ECA42101A57C2A1002B98ED /* Extensions.swift */,
+				4E6A27F21A8345DA00C06761 /* Views */,
 				4E93B72E1A56FC1C00407EE6 /* Cells */,
 			);
 			name = Language;
@@ -472,6 +484,7 @@
 				4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */,
 				4E93B72D1A56FB3800407EE6 /* BlockType.swift in Sources */,
 				4E93B7301A56FC5000407EE6 /* SLBlankTableViewCell.swift in Sources */,
+				4E6A27F41A83462300C06761 /* DraggableBlock.swift in Sources */,
 				4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */,
 				4ECA420B1A57B503002B98ED /* SLVariableTableViewCell.swift in Sources */,
 				4ECA42091A57152D002B98ED /* SLBaseTableViewCell.swift in Sources */,
@@ -506,6 +519,7 @@
 				4EFB9EBC1A819D580074C618 /* Extensions.swift in Sources */,
 				4E3E81961A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift in Sources */,
 				4E7CD3DC1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift in Sources */,
+				4E6A27F51A83482800C06761 /* DraggableBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

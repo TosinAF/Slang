@@ -18,36 +18,24 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
     var textFieldVerticalContraint = NSLayoutConstraint()
 
     lazy var variableNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.text = "name"
+        let textField = self.createTextfield(placeholder: "Name", tag: 0)
         textField.delegate = self
-        textField.textColor = UIColor.whiteColor()
-        textField.font = UIFont(name: "Avenir-Light", size: 14)
-        textField.textAlignment = .Center
-        textField.tag = 0
-        textField.setTranslatesAutoresizingMaskIntoConstraints(false)
         return textField
     }()
 
     lazy var nameInfoLabel: UILabel = {
-        let label = self.createInfoLabel(text: "name")
+        let label = self.createInfoLabel(text: "Name")
         return label
     }()
 
     lazy var variableValueTextField: UITextField = {
-        let textField = UITextField()
-        textField.text = "value"
+        let textField = self.createTextfield(placeholder: "Value", tag: 1)
         textField.delegate = self
-        textField.textColor = UIColor.whiteColor()
-        textField.font = UIFont(name: "Avenir-Light", size: 14)
-        textField.textAlignment = .Center;
-        textField.tag = 1
-        textField.setTranslatesAutoresizingMaskIntoConstraints(false)
         return textField
     }()
 
     lazy var valueInfoLabel: UILabel = {
-        let label = self.createInfoLabel(text: "value")
+        let label = self.createInfoLabel(text: "Value")
         return label
     }()
 
@@ -61,7 +49,6 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         type = .SLVariable
-        containerView.backgroundColor = UIColor(red:0.267, green:0.424, blue:0.702, alpha: 1)
 
         containerView.addSubview(variableNameTextField)
         containerView.addSubview(variableValueTextField)
@@ -117,14 +104,10 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
 extension SLVariableTableViewCell: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(textField: UITextField) {
-
         let constraintAnim = popConstraintAnimation(-5)
         textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
-
         nameInfoLabel.alpha = 1.0
         valueInfoLabel.alpha = 1.0
-
-        textField.text = ""
     }
 
     func textFieldDidEndEditing(textField: UITextField) {
