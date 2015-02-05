@@ -26,6 +26,11 @@ class BlockTypeSpec: QuickSpec {
                     let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
                     expect(type.tableViewCellClass === cell.dynamicType).to(beTrue())
                 }
+
+                it("has a color") {
+                    let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
+                    expect(type.color) == UIColor.SLBlankColor()
+                }
             }
 
             describe("SLVariable") {
@@ -43,6 +48,11 @@ class BlockTypeSpec: QuickSpec {
                 it("has a tableviewcell class") {
                     let cell = SLVariableTableViewCell(style: .Default, reuseIdentifier: nil)
                     expect(type.tableViewCellClass === cell.dynamicType).to(beTrue())
+                }
+
+                it("has a color") {
+                    let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
+                    expect(type.color) == UIColor.SLVariableColor()
                 }
             }
 
@@ -62,6 +72,11 @@ class BlockTypeSpec: QuickSpec {
                     let cell = SLIfTableViewCell(style: .Default, reuseIdentifier: nil)
                     expect(type.tableViewCellClass === cell.dynamicType).to(beTrue())
                 }
+
+                it("has a color") {
+                    let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
+                    expect(type.color) == UIColor.SLIfColor()
+                }
             }
 
             describe("SLElse") {
@@ -79,6 +94,11 @@ class BlockTypeSpec: QuickSpec {
                 it("has a tableviewcell class") {
                     let cell = SLElseTableViewCell(style: .Default, reuseIdentifier: nil)
                     expect(type.tableViewCellClass === cell.dynamicType).to(beTrue())
+                }
+
+                it("has a color") {
+                    let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
+                    expect(type.color) == UIColor.SLElseColor()
                 }
             }
 
@@ -98,6 +118,11 @@ class BlockTypeSpec: QuickSpec {
                     let cell = SLRepeatTableViewCell(style: .Default, reuseIdentifier: nil)
                     expect(type.tableViewCellClass === cell.dynamicType).to(beTrue())
                 }
+
+                it("has a color") {
+                    let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
+                    expect(type.color) == UIColor.SLRepeatColor()
+                }
             }
 
             describe("SLEnd") {
@@ -116,6 +141,11 @@ class BlockTypeSpec: QuickSpec {
                     let cell = SLEndTableViewCell(style: .Default, reuseIdentifier: nil)
                     expect(type.tableViewCellClass === cell.dynamicType).to(beTrue())
                 }
+
+                it("has a color") {
+                    let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
+                    expect(type.color) == UIColor.SLEndColor()
+                }
             }
 
             describe("SLPrint") {
@@ -133,6 +163,11 @@ class BlockTypeSpec: QuickSpec {
                 it("has a tableviewcell class") {
                     let cell = SLPrintTableViewCell(style: .Default, reuseIdentifier: nil)
                     expect(type.tableViewCellClass === cell.dynamicType).to(beTrue())
+                }
+
+                it("has a color") {
+                    let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
+                    expect(type.color) == UIColor.SLPrintColor()
                 }
             }
         }
