@@ -9,12 +9,17 @@
 import UIKit
 import Cartography
 
+protocol DraggableBlockDelegate: class {
+    func draggableBlock(panGestureDidFinishWithBlock block: DraggableBlock)
+}
+
 class DraggableBlock: UIView {
 
     // MARK: - Properties
 
     let type: BlockType
-    var didUpdateConstraints = false
+    weak var delegate: DraggableBlockDelegate?
+    var lastLocation: CGPoint = CGPointMake(0, 0)
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -30,8 +35,12 @@ class DraggableBlock: UIView {
     init(type: BlockType) {
         self.type = type
         super.init(frame: CGRectZero)
+
         backgroundColor = type.color
         addSubview(titleLabel)
+
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: "detectPan:")
+        self.gestureRecognizers = [panRecognizer]
     }
    
     required init(coder aDecoder: NSCoder) {
@@ -42,20 +51,30 @@ class DraggableBlock: UIView {
 
     override func updateConstraints() {
 
-        if (!didUpdateConstraints) {
-
-            layout(titleLabel) { titleLabel in
-                titleLabel.centerX == titleLabel.superview!.centerX
-                titleLabel.centerY == titleLabel.superview!.centerY
-            }
-
-            didUpdateConstraints = true
+        layout(titleLabel) { titleLabel in
+            titleLabel.centerX == titleLabel.superview!.centerX
+            titleLabel.centerY == titleLabel.superview!.centerY
         }
 
         super.updateConstraints()
     }
 
-    override func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(95, 35)
+    // MARK: - Pan Gesture Recognizer
+
+    func detectPan(sender: UIPanGestureRecognizer) {
+        println(frame)
+
+        if sender.state == .Ended {
+            delegate?.draggableBlock(panGestureDidFinishWithBlock: sender.view as DraggableBlock)
+            return
+        }
+
+        var translation  = sender.translationInView(self.superview!)
+        self.center = CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y)
+    }
+
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.superview?.bringSubviewToFront(self)
+        lastLocation = self.center
     }
 }

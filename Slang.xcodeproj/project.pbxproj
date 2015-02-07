@@ -255,8 +255,8 @@
 		4E93B7281A56F9B600407EE6 /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */,
 				4E93B72C1A56FB3800407EE6 /* BlockType.swift */,
+				4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */,
 				4E31042F1A83BD6D00938AE4 /* Utility */,
 				4E6A27F21A8345DA00C06761 /* Views */,
 				4E93B72E1A56FC1C00407EE6 /* Cells */,

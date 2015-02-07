@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 import Cartography
 
 // MARK: - SlangViewController Class
@@ -15,7 +16,9 @@ class SlangViewController: UIViewController {
 
     // MARK: - Properties
 
-   lazy var tableView: UITableView = {
+    var allTypes: [BlockType] = [.SLBlank, .SLVariable, .SLRepeat, .SLIf, .SLElse, .SLEnd, .SLPrint]
+
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -32,10 +35,13 @@ class SlangViewController: UIViewController {
         var blocks = [String: DraggableBlock]()
         for type in BlockType.allTypes {
             let block = DraggableBlock(type: type)
+            block.delegate = self
             blocks[type.identifier] = block
         }
         return blocks
     }()
+
+    var blockCenterPoints = [String: CGPoint]()
 
     // MARK: - View Lifecycle
 
@@ -81,6 +87,7 @@ class SlangViewController: UIViewController {
                 let block = blocks[type.identifier]!
                 let frame = CGRectMake(posX, posY, blockWidth, blockHeight)
                 block.frame = frame
+                blockCenterPoints[type.identifier] = block.center
                 posX += (blockWidth + horizontalSpacing)
             }
 
@@ -95,6 +102,7 @@ class SlangViewController: UIViewController {
         let type = BlockType.SLPrint
         let block = blocks[type.identifier]!
         block.frame = frame
+        blockCenterPoints[type.identifier] = block.center
     }
 }
 
@@ -115,8 +123,44 @@ extension SlangViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("print", forIndexPath: indexPath) as SLPrintTableViewCell
+        let type = allTypes[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier(type.identifier, forIndexPath: indexPath) as SLBaseTableViewCell
         cell.lineNumber = "\(indexPath.row + 1)"
         return cell
+    }
+}
+
+// MARK: - DraggableBlock Delegate
+
+extension SlangViewController: DraggableBlockDelegate {
+    
+    func draggableBlock(panGestureDidFinishWithBlock block: DraggableBlock) {
+
+        let visibleCells = tableView.visibleCells()
+
+        for cell in visibleCells {
+
+            let cellframe = tableView.convertRect(cell.frame, toView: self.view)
+
+            if CGRectIntersectsRect(cellframe, block.frame) {
+                if let indexPath = tableView.indexPathForCell(cell as UITableViewCell) {
+                    
+                    let centerPoint = blockCenterPoints[block.type.identifier]!
+                    let anim = createCenterAnimation(toPoint: centerPoint)
+                    
+                    allTypes[indexPath.row] = block.type
+                    block.pop_addAnimation(anim, forKey: "center")
+                    tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func createCenterAnimation(toPoint point: CGPoint) -> POPSpringAnimation {
+        let anim = POPSpringAnimation(propertyNamed: kPOPViewCenter)
+        anim.springBounciness = 5
+        anim.springSpeed = 5
+        anim.toValue = NSValue(CGPoint: point)
+        return anim
     }
 }
