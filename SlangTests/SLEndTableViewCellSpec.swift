@@ -6,7 +6,7 @@ class SLEndTableViewCellSpec: QuickSpec {
     override func spec() {
 
         let cell = SLEndTableViewCell(style: .Default, reuseIdentifier: nil)
-        let type = BlockType.SLEnd
+        let type = BlockType.End
 
         describe("type") {
             it("is SLEnd") {

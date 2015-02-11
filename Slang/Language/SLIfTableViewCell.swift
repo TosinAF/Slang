@@ -11,11 +11,31 @@ import Cartography
 
 // MARK: - SLIfTableViewCell Class
 
-class SLIfTableViewCell: SLBaseTableViewCell {
+class SLIfTableViewCell: SLTableViewCell {
 
     // MARK: - Properties
-
+    
     var textFieldVerticalContraint = NSLayoutConstraint()
+    
+    var s1: String = "" {
+        willSet {
+            statementOneTextField.text = newValue
+        }
+    }
+    
+    var cond: String = "" {
+        willSet {
+            conditionOperatorTextField.text = newValue
+        }
+    }
+    
+    var s2: String = "" {
+        willSet {
+            statementTwoTextField.text = newValue
+        }
+    }
+    
+    // MARK: - Views
 
     lazy var statementOneTextField: UITextField = {
         let textField = self.createTextfield(placeholder: "S1", tag: 0)
@@ -49,13 +69,13 @@ class SLIfTableViewCell: SLBaseTableViewCell {
         let label = self.createInfoLabel(text: "Operator")
         return label
     }()
-
+    
     // MARK: - Initalizers
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLIf
+        type = .If
         containerView.addSubview(statementOneTextField)
         containerView.addSubview(statementOneInfoLabel)
         containerView.addSubview(statementTwoTextField)
@@ -119,6 +139,22 @@ class SLIfTableViewCell: SLBaseTableViewCell {
         
         super.updateConstraints()
     }
+    
+    // MARK: - Config Methods
+    
+    override func configureForState(state: BlockState) {
+        let alpha: CGFloat = state == .New ? 0.0 : 1.0
+        let constant: CGFloat = state == .New ? 0.0 : -5.0
+        
+        statementOneInfoLabel.alpha = alpha
+        statementTwoInfoLabel.alpha = alpha
+        conditionOperatorInfoLabel.alpha = alpha
+        textFieldVerticalContraint.constant = constant
+        
+        if state == .New {
+            s1 = ""; cond = ""; s2 = ""
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate
@@ -134,6 +170,11 @@ extension SLIfTableViewCell: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(textField: UITextField) {
+        
         textField.trimWhitespace()
+        
+        let index = max(0, lineNumber.toInt()! - 1)
+        let block = Block.If(s1: statementOneTextField.text, condOp: conditionOperatorTextField.text, s2: statementTwoTextField.text)
+        delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }

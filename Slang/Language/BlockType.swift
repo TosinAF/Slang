@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum BlockType: Int {
-    case SLBlank = 0, SLVariable, SLRepeat, SLIf, SLElse, SLEnd, SLPrint
+    case Blank = 0, Variable, Repeat, If, Else, End, Print
 
     var identifier: String {
         let identifiers = ["blank", "variable", "repeat", "if", "else", "end", "print"]
@@ -48,5 +48,9 @@ enum BlockType: Int {
         return colors[self.rawValue]
     }
 
-    static let allTypes: [BlockType] = [SLBlank, SLVariable, SLRepeat, SLIf, SLElse, SLEnd, SLPrint]
+    static let allTypes: [BlockType] = [Blank, Variable, Repeat, If, Else, End, Print]
+    
+    static let editableTypes: [BlockType] = [Variable, Repeat, If, Print]
 }
+
+

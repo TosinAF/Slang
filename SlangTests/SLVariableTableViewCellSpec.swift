@@ -4,7 +4,7 @@ import Nimble
 class SLVariableTableViewCellSpec: QuickSpec {
     override func spec() {
 
-        let type = BlockType.SLVariable
+        let type = BlockType.Variable
         var cell = SLVariableTableViewCell(style: .Default, reuseIdentifier: nil)
 
         beforeEach {
@@ -13,7 +13,7 @@ class SLVariableTableViewCellSpec: QuickSpec {
 
         describe("type") {
             it("is SLVariable") {
-                expect(cell.type) == BlockType.SLVariable
+                expect(cell.type) == BlockType.Variable
             }
         }
 

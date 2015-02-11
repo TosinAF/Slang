@@ -11,7 +11,7 @@ import Cartography
 
 // MARK: - SLPrintTableViewCell Class
 
-class SLEndTableViewCell: SLBaseTableViewCell {
+class SLEndTableViewCell: SLTableViewCell {
 
     // MARK: - Properties
 
@@ -29,7 +29,7 @@ class SLEndTableViewCell: SLBaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLEnd
+        type = .End
         typeLabel.alpha = 0.0
         containerView.addSubview(titleLabel)
 

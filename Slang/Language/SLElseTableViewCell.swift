@@ -11,7 +11,7 @@ import Cartography
 
 // MARK: - SLElseTableViewCell
 
-class SLElseTableViewCell: SLBaseTableViewCell {
+class SLElseTableViewCell: SLTableViewCell {
 
     // MARK: - Properties
 
@@ -29,7 +29,7 @@ class SLElseTableViewCell: SLBaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLElse
+        type = .Else
         typeLabel.alpha = 0.0
         containerView.addSubview(titleLabel)
 

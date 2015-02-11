@@ -10,14 +10,14 @@ import UIKit
 
 // MARK: - SLBlankTableViewCell Class
 
-class SLBlankTableViewCell: SLBaseTableViewCell {
+class SLBlankTableViewCell: SLTableViewCell {
 
     // MARK: - Initalizers
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLBlank
+        type = .Blank
         typeLabel.alpha = 0.0
 
         setNeedsUpdateConstraints()

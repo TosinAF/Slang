@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import pop
 import Cartography
 
 // MARK: - SLRepeatTableViewCell Class
 
-class SLRepeatTableViewCell: SLBaseTableViewCell {
+class SLRepeatTableViewCell: SLTableViewCell {
 
     // MARK: - Properties
 
     var textFieldVerticalContraint = NSLayoutConstraint()
+    
+    var count: String = "" {
+        willSet {
+            repeatCountTextField.text = newValue
+        }
+    }
 
     lazy var repeatCountTextField: UITextField = {
         let textField = self.createTextfield(placeholder: "Count", tag: 0)
@@ -33,7 +40,7 @@ class SLRepeatTableViewCell: SLBaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLRepeat
+        type = .Repeat
         containerView.addSubview(repeatCountTextField)
         containerView.addSubview(infoLabel)
 
@@ -67,6 +74,20 @@ class SLRepeatTableViewCell: SLBaseTableViewCell {
 
         super.updateConstraints()
     }
+    
+    // MARK: - Config Methods
+    
+    override func configureForState(state: BlockState) {
+        let alpha: CGFloat = state == .New ? 0.0 : 1.0
+        let constant: CGFloat = state == .New ? 0.0 : -5.0
+        
+        infoLabel.alpha = alpha
+        textFieldVerticalContraint.constant = constant
+        
+        if state == .New {
+            count = ""
+        }
+    }
 }
 
 extension SLRepeatTableViewCell: UITextFieldDelegate {
@@ -79,6 +100,10 @@ extension SLRepeatTableViewCell: UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         textField.trimWhitespace()
+        
+        let index = max(0, lineNumber.toInt()! - 1)
+        let block = Block.Repeat(count: repeatCountTextField.text)
+        delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }
 

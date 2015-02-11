@@ -11,11 +11,17 @@ import Cartography
 
 // MARK: - SLPrintTableViewCell Class
 
-class SLPrintTableViewCell: SLBaseTableViewCell {
+class SLPrintTableViewCell: SLTableViewCell {
 
     // MARK: - Properties
 
     var textFieldVerticalContraint = NSLayoutConstraint()
+    
+    var statement: String = "" {
+        willSet {
+            printStatementTextField.text = newValue
+        }
+    }
 
     lazy var printStatementTextField: UITextField = {
         let textField = self.createTextfield(placeholder: "text", tag: 0)
@@ -33,7 +39,7 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLPrint
+        type = .Print
         containerView.addSubview(printStatementTextField)
         containerView.addSubview(infoLabel)
 
@@ -67,6 +73,24 @@ class SLPrintTableViewCell: SLBaseTableViewCell {
         
         super.updateConstraints()
     }
+    
+    // MARK: - Config Methods
+    
+    override func prepareForReuse() {
+        state = .New
+    }
+    
+    override func configureForState(state: BlockState) {
+        let alpha: CGFloat = state == .New ? 0.0 : 1.0
+        let constant: CGFloat = state == .New ? 0.0 : -5.0
+        
+        infoLabel.alpha = alpha
+        textFieldVerticalContraint.constant = constant
+        
+        if state == .New {
+            statement = ""
+        }
+    }
 }
 
 extension SLPrintTableViewCell: UITextFieldDelegate {
@@ -74,10 +98,15 @@ extension SLPrintTableViewCell: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         let constraintAnim = popConstraintAnimation(-5)
         textFieldVerticalContraint.pop_addAnimation(constraintAnim, forKey: "constant")
-        infoLabel.alpha = 1.0
+        infoLabel.alpha = alpha
     }
 
     func textFieldDidEndEditing(textField: UITextField) {
+        
         textField.trimWhitespace()
+        
+        let index = max(0, lineNumber.toInt()! - 1)
+        let block = Block.Print(statement: printStatementTextField.text)
+        delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }

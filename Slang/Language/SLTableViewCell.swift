@@ -13,20 +13,42 @@
 import UIKit
 import pop
 
-// MARK: - SLBaseTableViewCell Class
+// MARK: - SLTableViewCell Delegate
 
-class SLBaseTableViewCell: UITableViewCell {
+protocol SLTableViewCellDelegate: class {
+    func tableViewCell(tableViewCellAtIndex index: Int, didUpdateWithBlock block: Block)
+}
+
+// MARK: - SLTableViewCell Class
+
+class SLTableViewCell: UITableViewCell {
 
     // MARK: - Properties
-
-    var type: BlockType = .SLBlank {
+    
+    var didUpdateConstraints = false
+    weak var delegate: SLTableViewCellDelegate?
+    
+    var state: BlockState = .New {
+        willSet {
+            configureForState(newValue)
+        }
+    }
+    
+    var type: BlockType = .Blank {
         willSet(newType) {
             typeLabel.text = newType.title
             containerView.backgroundColor = newType.color
         }
     }
-    var didUpdateConstraints = false
-
+    
+    var lineNumber: String = "0" {
+        willSet(num) {
+            numberLabel.text = num
+        }
+    }
+    
+    // MARK: - Views
+    
     lazy var containerView: UIView = {
         let view = UIView()
         view.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -48,12 +70,6 @@ class SLBaseTableViewCell: UITableViewCell {
         label.setTranslatesAutoresizingMaskIntoConstraints(false)
         return label
     }()
-
-    var lineNumber: String = "0" {
-        willSet(num) {
-            numberLabel.text = num
-        }
-    }
 
     // MARK: - Initalizers
 
@@ -99,7 +115,48 @@ class SLBaseTableViewCell: UITableViewCell {
         
         super.updateConstraints()
     }
-
+    
+    // MARK: - Configuration Mehtods
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        state = .New
+    }
+    
+    func configureForState(state: BlockState) {
+        
+    }
+    
+    func configureWithBlock(block: Block) {
+        
+        (self as SLTableViewCell).state = block.state
+        
+        switch block {
+            
+        case .Variable(let name, let value):
+            let cell = self as SLVariableTableViewCell
+            cell.name = name
+            cell.value = value
+            
+        case .Repeat(let count):
+            let cell = self as SLRepeatTableViewCell
+            cell.count = count
+            
+        case .If(let s1, let cond, let s2):
+            let cell = self as SLIfTableViewCell
+            cell.s1 = s1
+            cell.cond = cond
+            cell.s2 = s2
+            
+        case .Print(let statement):
+            let cell = self as SLPrintTableViewCell
+            cell.statement = statement
+            
+        default:
+            return
+        }
+    }
+    
     // MARK: - Utility Functions
 
     func createTextfield(#placeholder: String, tag: Int) -> UITextField {

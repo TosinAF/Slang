@@ -11,12 +11,24 @@ import Cartography
 
 // MARK: - SLVariableTableViewCell Class
 
-class SLVariableTableViewCell: SLBaseTableViewCell {
+class SLVariableTableViewCell: SLTableViewCell {
 
     // MARK: - Properties
 
     var textFieldVerticalContraint = NSLayoutConstraint()
-
+    
+    var name: String = "" {
+        willSet {
+            variableNameTextField.text = newValue
+        }
+    }
+    
+    var value: String = "" {
+        willSet {
+            variableValueTextField.text = newValue
+        }
+    }
+    
     lazy var variableNameTextField: UITextField = {
         let textField = self.createTextfield(placeholder: "Name", tag: 0)
         textField.delegate = self
@@ -42,13 +54,13 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
     lazy var seperatorLabel: UILabel = {
         return self.createSeperatorLabel()
     }()
-
+    
     // MARK: - Initalizers
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        type = .SLVariable
+        type = .Variable
 
         containerView.addSubview(variableNameTextField)
         containerView.addSubview(variableValueTextField)
@@ -97,6 +109,21 @@ class SLVariableTableViewCell: SLBaseTableViewCell {
         
         super.updateConstraints()
     }
+    
+    // MARK: - Config Methods
+    
+    override func configureForState(state: BlockState) {
+        let alpha: CGFloat = state == .New ? 0.0 : 1.0
+        let constant: CGFloat = state == .New ? 0.0 : -5.0
+        
+        nameInfoLabel.alpha = alpha
+        valueInfoLabel.alpha = alpha
+        textFieldVerticalContraint.constant = constant
+        
+        if state == .New {
+            name = ""; value = ""
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate
@@ -111,6 +138,11 @@ extension SLVariableTableViewCell: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(textField: UITextField) {
+        
         textField.trimWhitespace()
+        
+        let index = max(0, lineNumber.toInt()! - 1)
+        let block = Block.Variable(name: variableNameTextField.text, value: variableValueTextField.text)
+        delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }

@@ -5,7 +5,7 @@ class SLRepeatTableViewCellSpec: QuickSpec {
     
     override func spec() {
 
-        let type = BlockType.SLRepeat
+        let type = BlockType.Repeat
         var cell = SLRepeatTableViewCell(style: .Default, reuseIdentifier: "identifier")
 
         beforeEach {
@@ -14,7 +14,7 @@ class SLRepeatTableViewCellSpec: QuickSpec {
 
         describe("type") {
             it("is SLRepeat") {
-                expect(cell.type) == BlockType.SLRepeat
+                expect(cell.type) == BlockType.Repeat
             }
         }
 

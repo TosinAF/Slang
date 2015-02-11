@@ -4,7 +4,7 @@ import Nimble
 class SLIfTableViewCellSpec: QuickSpec {
     override func spec() {
 
-        let type = BlockType.SLIf
+        let type = BlockType.If
         var cell = SLIfTableViewCell(style: .Default, reuseIdentifier: "identifier")
 
         beforeEach {

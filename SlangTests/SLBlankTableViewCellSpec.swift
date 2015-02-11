@@ -5,11 +5,11 @@ class SLBlankTableViewCellTest: QuickSpec {
     override func spec() {
 
         let cell = SLBlankTableViewCell(style: .Default, reuseIdentifier: nil)
-        let type = BlockType.SLBlank
+        let type = BlockType.Blank
 
         describe("type") {
             it("is SLBlank") {
-                expect(cell.type) == BlockType.SLBlank
+                expect(cell.type) == BlockType.Blank
             }
         }
 

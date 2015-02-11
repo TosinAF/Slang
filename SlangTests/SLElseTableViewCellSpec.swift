@@ -4,7 +4,7 @@ import Nimble
 class SLElseTableViewCellTest: QuickSpec {
     override func spec() {
         let cell = SLElseTableViewCell(style: .Default, reuseIdentifier: nil)
-        let type = BlockType.SLElse
+        let type = BlockType.Else
 
         describe("type") {
             it("is SLElse") {

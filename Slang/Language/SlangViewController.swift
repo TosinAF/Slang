@@ -16,7 +16,9 @@ class SlangViewController: UIViewController {
 
     // MARK: - Properties
 
-    var allTypes: [BlockType] = [.SLBlank, .SLVariable, .SLRepeat, .SLIf, .SLElse, .SLEnd, .SLPrint]
+    var allTypes: [Block] = [.Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank]
+    
+    let viewModel = SlangViewModel()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -99,7 +101,7 @@ class SlangViewController: UIViewController {
         // so this goes in the center of the last row
         posX += blockWidth + horizontalSpacing
         let frame = CGRectMake(posX, posY, blockWidth, blockHeight)
-        let type = BlockType.SLPrint
+        let type = BlockType.Print
         let block = blocks[type.identifier]!
         block.frame = frame
         blockCenterPoints[type.identifier] = block.center
@@ -110,12 +112,8 @@ class SlangViewController: UIViewController {
 
 extension SlangViewController: UITableViewDelegate, UITableViewDataSource {
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return viewModel.blockCount
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -123,9 +121,17 @@ extension SlangViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let type = allTypes[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier(type.identifier, forIndexPath: indexPath) as SLBaseTableViewCell
+        
+        let block = allTypes[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(block.type.identifier, forIndexPath: indexPath) as SLTableViewCell
         cell.lineNumber = "\(indexPath.row + 1)"
+        cell.configureWithBlock(block)
+        
+        if contains(BlockType.editableTypes, block.type) {
+           cell.delegate = self
+        }
+        
         return cell
     }
 }
@@ -134,7 +140,7 @@ extension SlangViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SlangViewController: DraggableBlockDelegate {
     
-    func draggableBlock(panGestureDidFinishWithBlock block: DraggableBlock) {
+    func draggableBlock(panGestureDidFinishWithDraggableBlock draggableBlock: DraggableBlock) {
 
         let visibleCells = tableView.visibleCells()
 
@@ -142,14 +148,14 @@ extension SlangViewController: DraggableBlockDelegate {
 
             let cellframe = tableView.convertRect(cell.frame, toView: self.view)
 
-            if CGRectIntersectsRect(cellframe, block.frame) {
+            if CGRectIntersectsRect(cellframe, draggableBlock.frame) {
                 if let indexPath = tableView.indexPathForCell(cell as UITableViewCell) {
                     
-                    let centerPoint = blockCenterPoints[block.type.identifier]!
+                    let centerPoint = blockCenterPoints[draggableBlock.type.identifier]!
                     let anim = createCenterAnimation(toPoint: centerPoint)
+                    draggableBlock.pop_addAnimation(anim, forKey: "center")
                     
-                    allTypes[indexPath.row] = block.type
-                    block.pop_addAnimation(anim, forKey: "center")
+                    allTypes[indexPath.row] = Block.createBlock(draggableBlock.type)
                     tableView.reloadData()
                 }
             }
@@ -164,3 +170,17 @@ extension SlangViewController: DraggableBlockDelegate {
         return anim
     }
 }
+
+// MARK: - DraggableBlock Delegate
+
+extension SlangViewController: SLTableViewCellDelegate {
+    
+    func tableViewCell(tableViewCellAtIndex index: Int, didUpdateWithBlock block: Block) {
+        allTypes[index] = block
+        
+        for block in allTypes {
+            println(block.description)
+        }
+    }
+}
+

@@ -12,7 +12,7 @@ class BlockTypeSpec: QuickSpec {
 
             describe("SLBlank") {
 
-                let type = BlockType.SLBlank
+                let type = BlockType.Blank
 
                 it("has an identifier") {
                     expect(type.identifier) == "blank"
@@ -35,7 +35,7 @@ class BlockTypeSpec: QuickSpec {
 
             describe("SLVariable") {
 
-                let type = BlockType.SLVariable
+                let type = BlockType.Variable
 
                 it("has an identifier") {
                     expect(type.identifier) == "variable"
@@ -58,7 +58,7 @@ class BlockTypeSpec: QuickSpec {
 
             describe("SLIf") {
 
-                let type = BlockType.SLIf
+                let type = BlockType.If
 
                 it("has an identifier") {
                     expect(type.identifier) == "if"
@@ -81,7 +81,7 @@ class BlockTypeSpec: QuickSpec {
 
             describe("SLElse") {
 
-                let type = BlockType.SLElse
+                let type = BlockType.Else
 
                 it("has an identifier") {
                     expect(type.identifier) == "else"
@@ -104,7 +104,7 @@ class BlockTypeSpec: QuickSpec {
 
             describe("SLRepeat") {
 
-                let type = BlockType.SLRepeat
+                let type = BlockType.Repeat
 
                 it("has an identifier") {
                     expect(type.identifier) == "repeat"
@@ -127,7 +127,7 @@ class BlockTypeSpec: QuickSpec {
 
             describe("SLEnd") {
 
-                let type = BlockType.SLEnd
+                let type = BlockType.End
 
                 it("has an identifier") {
                     expect(type.identifier) == "end"
@@ -150,7 +150,7 @@ class BlockTypeSpec: QuickSpec {
 
             describe("SLPrint") {
 
-                let type = BlockType.SLPrint
+                let type = BlockType.Print
 
                 it("has an identifier") {
                     expect(type.identifier) == "print"

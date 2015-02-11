@@ -10,7 +10,7 @@ import UIKit
 import Cartography
 
 protocol DraggableBlockDelegate: class {
-    func draggableBlock(panGestureDidFinishWithBlock block: DraggableBlock)
+    func draggableBlock(panGestureDidFinishWithDraggableBlock draggableBlock: DraggableBlock)
 }
 
 class DraggableBlock: UIView {
@@ -62,10 +62,8 @@ class DraggableBlock: UIView {
     // MARK: - Pan Gesture Recognizer
 
     func detectPan(sender: UIPanGestureRecognizer) {
-        println(frame)
-
         if sender.state == .Ended {
-            delegate?.draggableBlock(panGestureDidFinishWithBlock: sender.view as DraggableBlock)
+            delegate?.draggableBlock(panGestureDidFinishWithDraggableBlock: sender.view as DraggableBlock)
             return
         }
 

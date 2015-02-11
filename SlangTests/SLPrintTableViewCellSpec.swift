@@ -5,7 +5,7 @@ class SLPrintTableViewCellSpec: QuickSpec {
 
     override func spec() {
 
-        let type = BlockType.SLPrint
+        let type = BlockType.Print
         var cell = SLPrintTableViewCell(style: .Default, reuseIdentifier: "identifier")
 
         beforeEach {
@@ -14,7 +14,7 @@ class SLPrintTableViewCellSpec: QuickSpec {
 
         describe("type") {
             it("is SLPrint") {
-                expect(cell.type) == BlockType.SLPrint
+                expect(cell.type) == BlockType.Print
             }
         }
 
