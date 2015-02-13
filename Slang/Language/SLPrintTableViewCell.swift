@@ -30,7 +30,7 @@ class SLPrintTableViewCell: SLTableViewCell {
     }()
 
     lazy var infoLabel: UILabel = {
-        let label = self.createInfoLabel(text: "String To Print")
+        let label = self.createInfoLabel(text: "Statement To Print")
         return label
     }()
 

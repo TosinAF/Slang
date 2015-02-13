@@ -18,6 +18,8 @@
 		4E3E81961A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */; };
 		4E3E81981A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */; };
 		4E3E819A1A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */; };
+		4E57E1F01A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */; };
+		4E57E1F11A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */; };
 		4E6A27F41A83462300C06761 /* DraggableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A27F31A83462300C06761 /* DraggableBlock.swift */; };
 		4E6A27F51A83482800C06761 /* DraggableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A27F31A83462300C06761 /* DraggableBlock.swift */; };
 		4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */; };
@@ -36,6 +38,8 @@
 		4ECA420F1A57B7F6002B98ED /* FiraSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */; };
 		4ECA42111A57C2A1002B98ED /* SLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA42101A57C2A1002B98ED /* SLExtensions.swift */; };
 		4ECA42131A57DE62002B98ED /* FiraSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA42121A57DE62002B98ED /* FiraSans-Light.otf */; };
+		4EE792401A8B9A58000A070E /* JavascriptCoreFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7923F1A8B9A58000A070E /* JavascriptCoreFix.m */; };
+		4EE792411A8B9D76000A070E /* JavascriptCoreFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7923F1A8B9A58000A070E /* JavascriptCoreFix.m */; };
 		4EE960851A85DD3B00E43C0F /* SlangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960841A85DD3B00E43C0F /* SlangViewModel.swift */; };
 		4EE960861A85DD3B00E43C0F /* SlangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960841A85DD3B00E43C0F /* SlangViewModel.swift */; };
 		4EE960881A85DDB500E43C0F /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960871A85DDB500E43C0F /* LessonViewController.swift */; };
@@ -80,6 +84,7 @@
 		4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLPrintTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepeatTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLIfTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		4E6A27F31A83462300C06761 /* DraggableBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DraggableBlock.swift; path = Language/DraggableBlock.swift; sourceTree = "<group>"; };
 		4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLEndTableViewCell.swift; path = Language/SLEndTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLPrintTableViewCell.swift; path = Language/SLPrintTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +107,7 @@
 		4ECA42101A57C2A1002B98ED /* SLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLExtensions.swift; sourceTree = "<group>"; };
 		4ECA42121A57DE62002B98ED /* FiraSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Light.otf"; path = "Resources/FiraSans-Light.otf"; sourceTree = "<group>"; };
 		4ECA42141A5BD962002B98ED /* Slang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Slang-Bridging-Header.h"; sourceTree = "<group>"; };
+		4EE7923F1A8B9A58000A070E /* JavascriptCoreFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JavascriptCoreFix.m; path = Language/JavascriptCoreFix.m; sourceTree = "<group>"; };
 		4EE960841A85DD3B00E43C0F /* SlangViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlangViewModel.swift; path = Language/SlangViewModel.swift; sourceTree = "<group>"; };
 		4EE960871A85DDB500E43C0F /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonViewController.swift; path = App/LessonViewController.swift; sourceTree = "<group>"; };
 		4EE9608B1A85EBFF00E43C0F /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Block.swift; path = Language/Block.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 				4E3104321A83BE3000938AE4 /* SLConstants.swift */,
 				4ECA42101A57C2A1002B98ED /* SLExtensions.swift */,
 				4E3104301A83BD9500938AE4 /* UIColor+SLColors.swift */,
+				4EE7923F1A8B9A58000A070E /* JavascriptCoreFix.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -312,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				4EE960871A85DDB500E43C0F /* LessonViewController.swift */,
+				4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -517,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EE960851A85DD3B00E43C0F /* SlangViewModel.swift in Sources */,
+				4E57E1F01A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */,
 				4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */,
 				4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */,
 				4E3104311A83BD9500938AE4 /* UIColor+SLColors.swift in Sources */,
@@ -525,6 +534,7 @@
 				4E93B7301A56FC5000407EE6 /* SLBlankTableViewCell.swift in Sources */,
 				4E3104331A83BE3000938AE4 /* SLConstants.swift in Sources */,
 				4E6A27F41A83462300C06761 /* DraggableBlock.swift in Sources */,
+				4EE792401A8B9A58000A070E /* JavascriptCoreFix.m in Sources */,
 				4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */,
 				4ECA420B1A57B503002B98ED /* SLVariableTableViewCell.swift in Sources */,
 				4ECA42091A57152D002B98ED /* SLTableViewCell.swift in Sources */,
@@ -546,6 +556,7 @@
 				4E3E81981A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift in Sources */,
 				4EFB9EB71A819D550074C618 /* SLEndTableViewCell.swift in Sources */,
 				4EFB9EB91A819D550074C618 /* SLRepeatTableViewCell.swift in Sources */,
+				4E57E1F11A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */,
 				4EFB9EBB1A819D550074C618 /* SLElseTableViewCell.swift in Sources */,
 				4EFB9EB61A819D550074C618 /* SLBlankTableViewCell.swift in Sources */,
 				4E3E81921A81DE0800DCDC88 /* SLVariableTableViewCellSpec.swift in Sources */,
@@ -553,6 +564,7 @@
 				4EFB9EB41A819CAE0074C618 /* SLVariableTableViewCell.swift in Sources */,
 				4E3104351A83BE7600938AE4 /* UIColor+SLColors.swift in Sources */,
 				4EFB9EBD1A819D5A0074C618 /* BlockType.swift in Sources */,
+				4EE792411A8B9D76000A070E /* JavascriptCoreFix.m in Sources */,
 				4E3E81901A81DD0C00DCDC88 /* SLBlankTableViewCellSpec.swift in Sources */,
 				4EFB9EB81A819D550074C618 /* SLPrintTableViewCell.swift in Sources */,
 				4E3E81941A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift in Sources */,
@@ -710,6 +722,7 @@
 				INFOPLIST_FILE = SlangTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Slang/Slang-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slang.app/Slang";
 			};
 			name = Debug;
@@ -726,6 +739,7 @@
 				INFOPLIST_FILE = SlangTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Slang/Slang-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slang.app/Slang";
 			};
 			name = Release;

@@ -6,19 +6,28 @@
 //  Copyright (c) 2015 Tosin Afolabi. All rights reserved.
 //
 
-import UIKit
 import pop
+import UIKit
 import Cartography
+
 
 // MARK: - SlangViewController Class
 
 class SlangViewController: UIViewController {
 
     // MARK: - Properties
-
-    var allTypes: [Block] = [.Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank, .Blank]
     
     let viewModel = SlangViewModel()
+    
+    lazy var executeButton: UIButton = {
+        let button = UIButton(frame: CGRectMake(0, 0, 28, 28))
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.borderColor = UIColor.PrimaryBrandColor().CGColor
+        button.layer.borderWidth = 12
+        button.layer.cornerRadius = 14
+        button.addTarget(self, action: "executeButtonTapped", forControlEvents: .TouchUpInside)
+        return button
+    }()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -49,13 +58,18 @@ class SlangViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(tableView)
+        view.addSubview(executeButton)
 
         for (key, block) in blocks {
             view.addSubview(block)
         }
-
+        
         layoutSubviews()
+        
+        let tap = UITapGestureRecognizer(target: self, action:"dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
 
     // MARK: - Layout
@@ -69,6 +83,7 @@ class SlangViewController: UIViewController {
         }
 
         layoutBlocks()
+        layoutExecuteButton()
     }
 
     func layoutBlocks() {
@@ -83,7 +98,6 @@ class SlangViewController: UIViewController {
         var posY: CGFloat = self.view.frame.size.height * 0.5 + 30
 
         for i in [0,3] {
-
             for j in 0..<columnLength {
                 let type = BlockType(rawValue: j + i)!
                 let block = blocks[type.identifier]!
@@ -106,6 +120,22 @@ class SlangViewController: UIViewController {
         block.frame = frame
         blockCenterPoints[type.identifier] = block.center
     }
+    
+    func layoutExecuteButton() {
+        var center = blockCenterPoints[BlockType.Print.identifier]!
+        center.x += 115
+        executeButton.center = center
+    }
+    
+    // MARK: - Actions
+    
+    func executeButtonTapped() {
+        let output = viewModel.execute()
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 // MARK: - UITableView DataSource & Delegate Methods
@@ -122,9 +152,9 @@ extension SlangViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let block = allTypes[indexPath.row]
-        
+        let block = viewModel.block(atIndex: indexPath.row)
         let cell = tableView.dequeueReusableCellWithIdentifier(block.type.identifier, forIndexPath: indexPath) as SLTableViewCell
+        
         cell.lineNumber = "\(indexPath.row + 1)"
         cell.configureWithBlock(block)
         
@@ -143,23 +173,30 @@ extension SlangViewController: DraggableBlockDelegate {
     func draggableBlock(panGestureDidFinishWithDraggableBlock draggableBlock: DraggableBlock) {
 
         let visibleCells = tableView.visibleCells()
-
         for cell in visibleCells {
-
+            
             let cellframe = tableView.convertRect(cell.frame, toView: self.view)
-
+            
             if CGRectIntersectsRect(cellframe, draggableBlock.frame) {
-                if let indexPath = tableView.indexPathForCell(cell as UITableViewCell) {
-                    
-                    let centerPoint = blockCenterPoints[draggableBlock.type.identifier]!
-                    let anim = createCenterAnimation(toPoint: centerPoint)
-                    draggableBlock.pop_addAnimation(anim, forKey: "center")
-                    
-                    allTypes[indexPath.row] = Block.createBlock(draggableBlock.type)
-                    tableView.reloadData()
-                }
+                
+                animateDraggableBlockReturn(draggableBlock)
+                
+                let indexPath = tableView.indexPathForCell(cell as UITableViewCell)!
+                let block = Block.createBlock(draggableBlock.type)
+                viewModel.updateBlock(atIndex: indexPath.row, withBlock: block)
+                tableView.reloadData()
+                
+                break
             }
         }
+        
+        animateDraggableBlockReturn(draggableBlock)
+    }
+    
+    func animateDraggableBlockReturn(draggableBlock: DraggableBlock) {
+        let centerPoint = blockCenterPoints[draggableBlock.type.identifier]!
+        let anim = createCenterAnimation(toPoint: centerPoint)
+        draggableBlock.pop_addAnimation(anim, forKey: "center")
     }
     
     func createCenterAnimation(toPoint point: CGPoint) -> POPSpringAnimation {
@@ -171,16 +208,12 @@ extension SlangViewController: DraggableBlockDelegate {
     }
 }
 
-// MARK: - DraggableBlock Delegate
+// MARK: - SLTableViewCellDelegate
 
 extension SlangViewController: SLTableViewCellDelegate {
     
     func tableViewCell(tableViewCellAtIndex index: Int, didUpdateWithBlock block: Block) {
-        allTypes[index] = block
-        
-        for block in allTypes {
-            println(block.description)
-        }
+        viewModel.updateBlock(atIndex: index, withBlock: block)
     }
 }
 

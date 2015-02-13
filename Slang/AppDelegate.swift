@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setup()
-        //UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
         window.makeKeyAndVisible()
         return true
     }

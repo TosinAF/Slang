@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias ID = AnyObject!
+
 private let Device = UIDevice.currentDevice()
 private let iosVersion = NSString(string: Device.systemVersion).doubleValue
 
