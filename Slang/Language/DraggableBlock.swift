@@ -58,6 +58,15 @@ class DraggableBlock: UIView {
 
         super.updateConstraints()
     }
+    
+    override func layoutSubviews() {
+        let shadowPath = UIBezierPath(rect: bounds)
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSizeMake(0, 0.5)
+        layer.shadowOpacity = 0.2
+        layer.shadowPath = shadowPath.CGPath
+    }
 
     // MARK: - Pan Gesture Recognizer
 
