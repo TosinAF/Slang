@@ -18,9 +18,10 @@ class DraggableBlock: UIView {
     // MARK: - Properties
 
     let type: BlockType
-    weak var delegate: DraggableBlockDelegate?
     var lastLocation: CGPoint = CGPointMake(0, 0)
-
+    var isBeingDragged: Bool = false
+    weak var delegate: DraggableBlockDelegate?
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = self.type.title
@@ -60,12 +61,11 @@ class DraggableBlock: UIView {
     }
     
     override func layoutSubviews() {
-        let shadowPath = UIBezierPath(rect: bounds)
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOffset = CGSizeMake(0, 0.5)
-        layer.shadowOpacity = 0.2
-        layer.shadowPath = shadowPath.CGPath
+        if (isBeingDragged) {
+            drawShadow()
+        } else {
+            layer.shadowOpacity = 0.0
+        }
     }
 
     // MARK: - Pan Gesture Recognizer
@@ -73,15 +73,28 @@ class DraggableBlock: UIView {
     func detectPan(sender: UIPanGestureRecognizer) {
         if sender.state == .Ended {
             delegate?.draggableBlock(panGestureDidFinishWithDraggableBlock: sender.view as DraggableBlock)
+            isBeingDragged = false
             return
         }
 
         var translation  = sender.translationInView(self.superview!)
         self.center = CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y)
+        isBeingDragged = true
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.superview?.bringSubviewToFront(self)
         lastLocation = self.center
+    }
+    
+    // MARK: - Utility Functions
+    
+    func drawShadow() {
+        let shadowPath = UIBezierPath(rect: bounds)
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSizeMake(0, 0.5)
+        layer.shadowOpacity = 0.2
+        layer.shadowPath = shadowPath.CGPath
     }
 }

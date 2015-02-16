@@ -9,6 +9,10 @@
 import UIKit
 
 extension UIColor {
+    
+    class func ConsoleTextColor() -> UIColor {
+        return UIColor(red:0.118, green:0.510, blue:0.298, alpha: 1)
+    }
 
     class func SLBlankColor() -> UIColor {
         return UIColor.grayColor()

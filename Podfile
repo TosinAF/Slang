@@ -4,6 +4,7 @@ platform :ios, '8.0'
 def import_pods
     pod 'pop'
     pod 'Cartography'
+    pod 'AHKBendableView', :git => 'https://github.com/TosinAF/AHKBendableView'
 end
 
 target :"Slang" do

@@ -28,6 +28,8 @@
 		4E76FD7D1A640D9C009722A0 /* SLElseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7C1A640D9C009722A0 /* SLElseTableViewCell.swift */; };
 		4E76FD7F1A640DB7009722A0 /* SLIfTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7E1A640DB7009722A0 /* SLIfTableViewCell.swift */; };
 		4E7CD3DC1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CD3DB1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift */; };
+		4E8D54701A8E03F100C92702 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D546F1A8E03F100C92702 /* ConsoleView.swift */; };
+		4E8D54711A8E03F100C92702 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8D546F1A8E03F100C92702 /* ConsoleView.swift */; };
 		4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */; };
 		4E93B70E1A56DD0400407EE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E93B70D1A56DD0400407EE6 /* Images.xcassets */; };
 		4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */; };
@@ -92,6 +94,7 @@
 		4E76FD7C1A640D9C009722A0 /* SLElseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLElseTableViewCell.swift; path = Language/SLElseTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD7E1A640DB7009722A0 /* SLIfTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLIfTableViewCell.swift; path = Language/SLIfTableViewCell.swift; sourceTree = "<group>"; };
 		4E7CD3DB1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLElseTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E8D546F1A8E03F100C92702 /* ConsoleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleView.swift; path = Language/ConsoleView.swift; sourceTree = "<group>"; };
 		4E93B7061A56DD0400407EE6 /* Slang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E93B70A1A56DD0400407EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E93B70B1A56DD0400407EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				4E6A27F31A83462300C06761 /* DraggableBlock.swift */,
+				4E8D546F1A8E03F100C92702 /* ConsoleView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -528,6 +532,7 @@
 				4E57E1F01A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */,
 				4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */,
 				4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */,
+				4E8D54701A8E03F100C92702 /* ConsoleView.swift in Sources */,
 				4E3104311A83BD9500938AE4 /* UIColor+SLColors.swift in Sources */,
 				4E93B72D1A56FB3800407EE6 /* BlockType.swift in Sources */,
 				4EE960881A85DDB500E43C0F /* LessonViewController.swift in Sources */,
@@ -569,6 +574,7 @@
 				4EFB9EB81A819D550074C618 /* SLPrintTableViewCell.swift in Sources */,
 				4E3E81941A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift in Sources */,
 				4E3E819A1A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift in Sources */,
+				4E8D54711A8E03F100C92702 /* ConsoleView.swift in Sources */,
 				4EE960891A85DDB500E43C0F /* LessonViewController.swift in Sources */,
 				4EE9608D1A85EBFF00E43C0F /* Block.swift in Sources */,
 				4EFB9EBA1A819D550074C618 /* SLIfTableViewCell.swift in Sources */,

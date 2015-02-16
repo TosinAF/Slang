@@ -9,6 +9,7 @@
 import pop
 import UIKit
 import Cartography
+import AHKBendableView
 
 
 // MARK: - SlangViewController Class
@@ -18,17 +19,11 @@ class SlangViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel = SlangViewModel()
+    var blockCenterPoints = [String: CGPoint]()
+    let consoleLayoutGroup = ConstraintGroup()
     
-    lazy var executeButton: UIButton = {
-        let button = UIButton(frame: CGRectMake(0, 0, 28, 28))
-        button.backgroundColor = UIColor.whiteColor()
-        button.layer.borderColor = UIColor.PrimaryBrandColor().CGColor
-        button.layer.borderWidth = 12
-        button.layer.cornerRadius = 14
-        button.addTarget(self, action: "executeButtonTapped", forControlEvents: .TouchUpInside)
-        return button
-    }()
-
+    // MARK: - Views
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -41,7 +36,7 @@ class SlangViewController: UIViewController {
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
         return tableView
     }()
-
+    
     lazy var blocks: [String: DraggableBlock] = {
         var blocks = [String: DraggableBlock]()
         for type in BlockType.allTypes {
@@ -51,20 +46,53 @@ class SlangViewController: UIViewController {
         }
         return blocks
     }()
-
-    var blockCenterPoints = [String: CGPoint]()
+    
+    lazy var executeButton: UIButton = {
+        let button = UIButton(frame: CGRectMake(0, 0, 28, 28))
+        button.backgroundColor = UIColor.whiteColor()
+        button.layer.borderColor = UIColor.PrimaryBrandColor().CGColor
+        button.layer.borderWidth = 12
+        button.layer.cornerRadius = 14
+        button.addTarget(self, action: "executeButtonTapped", forControlEvents: .TouchUpInside)
+        return button
+    }()
+    
+    lazy var executeButton2: UIButton = {
+        let button = UIButton(frame: CGRectMake(0, 0, 24, 24))
+        button.backgroundColor = UIColor.PrimaryBrandColor()
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+        button.layer.borderWidth = 10
+        button.layer.cornerRadius = 12
+        button.addTarget(self, action: "executeButtonTapped", forControlEvents: .TouchUpInside)
+        return button
+        }()
+    
+    lazy var consoleView: ConsoleView = {
+        let consoleView = ConsoleView(frame: CGRectZero)
+        consoleView.log = "Hello"
+        consoleView.fillColor = UIColor.PrimaryBrandColor()
+        consoleView.damping = 0.7
+        consoleView.initialSpringVelocity = 0.8
+        consoleView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return consoleView
+    }()
 
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Slang"
+        
+         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: executeButton2)
         
         view.addSubview(tableView)
         view.addSubview(executeButton)
-
+        
         for (key, block) in blocks {
             view.addSubview(block)
         }
+        
+        view.addSubview(consoleView)
         
         layoutSubviews()
         
@@ -81,6 +109,12 @@ class SlangViewController: UIViewController {
             tableView.height == tableView.superview!.height * 0.5
             tableView.top == tableView.superview!.top
         }
+        
+        constrain(consoleView, replace: consoleLayoutGroup) { consoleView in
+            consoleView.width == consoleView.superview!.width
+            consoleView.height == consoleView.superview!.height
+            consoleView.top == consoleView.superview!.bottom
+        }
 
         layoutBlocks()
         layoutExecuteButton()
@@ -95,7 +129,7 @@ class SlangViewController: UIViewController {
         let blockHeight: CGFloat = 35.0
 
         var posX: CGFloat = 20.0
-        var posY: CGFloat = self.view.frame.size.height * 0.5 + 30
+        var posY: CGFloat = self.view.frame.size.height * 0.5
 
         for i in [0,3] {
             for j in 0..<columnLength {
@@ -130,7 +164,8 @@ class SlangViewController: UIViewController {
     // MARK: - Actions
     
     func executeButtonTapped() {
-        let output = viewModel.execute()
+        displayConsoleView()
+        //let output = viewModel.execute()
     }
     
     func dismissKeyboard() {
@@ -166,6 +201,30 @@ extension SlangViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - View Animations 
+
+extension SlangViewController {
+    
+    func displayConsoleView() {
+        
+        view.bringSubviewToFront(consoleView)
+        
+        constrain(consoleView, tableView, replace: consoleLayoutGroup) { consoleView, tableView in
+            consoleView.width == consoleView.superview!.width
+            consoleView.height == consoleView.superview!.height * 0.5
+            consoleView.top == tableView.bottom + 30
+        }
+        
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9,
+            initialSpringVelocity: 0.9,
+            options: .BeginFromCurrentState | .AllowUserInteraction,
+            animations: {
+                self.view.layoutIfNeeded()
+            }, completion: nil
+        )
+    }
+}
+
 // MARK: - DraggableBlock Delegate
 
 extension SlangViewController: DraggableBlockDelegate {
@@ -185,7 +244,6 @@ extension SlangViewController: DraggableBlockDelegate {
                 let block = Block.createBlock(draggableBlock.type)
                 viewModel.updateBlock(atIndex: indexPath.row, withBlock: block)
                 tableView.reloadData()
-                
                 break
             }
         }

@@ -25,12 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setup()
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
         window.makeKeyAndVisible()
         return true
     }
 
     func setup() {
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().barTintColor = UIColor.PrimaryBrandColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UITextField.appearance().tintColor = UIColor.whiteColor()
     }
 }

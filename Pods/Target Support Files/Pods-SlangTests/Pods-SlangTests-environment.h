@@ -6,11 +6,17 @@
 // project.
 
 
+// AHKBendableView
+#define COCOAPODS_POD_AVAILABLE_AHKBendableView
+#define COCOAPODS_VERSION_MAJOR_AHKBendableView 0
+#define COCOAPODS_VERSION_MINOR_AHKBendableView 2
+#define COCOAPODS_VERSION_PATCH_AHKBendableView 0
+
 // Cartography
 #define COCOAPODS_POD_AVAILABLE_Cartography
 #define COCOAPODS_VERSION_MAJOR_Cartography 0
-#define COCOAPODS_VERSION_MINOR_Cartography 1
-#define COCOAPODS_VERSION_PATCH_Cartography 1
+#define COCOAPODS_VERSION_MINOR_Cartography 2
+#define COCOAPODS_VERSION_PATCH_Cartography 0
 
 // Nimble
 #define COCOAPODS_POD_AVAILABLE_Nimble

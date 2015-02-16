@@ -1,0 +1,6 @@
+framework module AHKBendableView {
+  umbrella header "Pods-Slang-AHKBendableView-umbrella.h"
+
+  export *
+  module * { export * }
+}
