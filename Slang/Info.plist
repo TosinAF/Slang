@@ -26,6 +26,10 @@
 	<array>
 		<string>FiraSans-Regular.otf</string>
 		<string>FiraSans-Light.otf</string>
+		<string>Entypo.ttf</string>
+		<string>Inconsolata.otf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
@@ -39,6 +43,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

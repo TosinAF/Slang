@@ -2,7 +2,7 @@
 //  DraggableBlock.swift
 //  Slang
 //
-//  Created by Tosin Afolabi on 05/02/2015.
+//  Created by Tosin Afolabi on 05/21/2015.
 //  Copyright (c) 2015 Tosin Afolabi. All rights reserved.
 //
 
@@ -39,6 +39,8 @@ class DraggableBlock: UIView {
 
         backgroundColor = type.color
         addSubview(titleLabel)
+        
+        if type == .Blank { titleLabel.textColor = UIColor.blackColor() }
 
         let panRecognizer = UIPanGestureRecognizer(target: self, action: "detectPan:")
         self.gestureRecognizers = [panRecognizer]

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E13DBDE1AAA087300F9D09A /* LessonListViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13DBDD1AAA087300F9D09A /* LessonListViewController2.swift */; };
+		4E13DBDF1AAA087700F9D09A /* LessonListViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13DBDD1AAA087300F9D09A /* LessonListViewController2.swift */; };
+		4E1AC8E31A9D10BE00E3404F /* PresentLessonTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8E21A9D10BE00E3404F /* PresentLessonTransitionManager.swift */; };
+		4E1AC8E41A9D10BE00E3404F /* PresentLessonTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8E21A9D10BE00E3404F /* PresentLessonTransitionManager.swift */; };
+		4E1AC8E71A9DBEE300E3404F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8E61A9DBEE300E3404F /* Extensions.swift */; };
+		4E1AC8E81A9DBEE300E3404F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8E61A9DBEE300E3404F /* Extensions.swift */; };
+		4E1AC8EA1A9DBEFB00E3404F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8E91A9DBEFB00E3404F /* Constants.swift */; };
+		4E1AC8EB1A9DBEFB00E3404F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8E91A9DBEFB00E3404F /* Constants.swift */; };
+		4E1AC8ED1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8EC1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift */; };
+		4E1AC8EE1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1AC8EC1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift */; };
 		4E3104311A83BD9500938AE4 /* UIColor+SLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3104301A83BD9500938AE4 /* UIColor+SLColors.swift */; };
 		4E3104331A83BE3000938AE4 /* SLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3104321A83BE3000938AE4 /* SLConstants.swift */; };
 		4E3104351A83BE7600938AE4 /* UIColor+SLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3104301A83BD9500938AE4 /* UIColor+SLColors.swift */; };
@@ -18,10 +28,16 @@
 		4E3E81961A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */; };
 		4E3E81981A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */; };
 		4E3E819A1A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */; };
+		4E4677401AAA159400FBEAAC /* LessonListTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E46773F1AAA159400FBEAAC /* LessonListTableViewCell2.swift */; };
+		4E4677411AAA159400FBEAAC /* LessonListTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E46773F1AAA159400FBEAAC /* LessonListTableViewCell2.swift */; };
 		4E57E1F01A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */; };
 		4E57E1F11A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */; };
 		4E6A27F41A83462300C06761 /* DraggableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A27F31A83462300C06761 /* DraggableBlock.swift */; };
 		4E6A27F51A83482800C06761 /* DraggableBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6A27F31A83462300C06761 /* DraggableBlock.swift */; };
+		4E6CAD9B1A92020E002D5A9C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CAD9A1A92020E002D5A9C /* Entypo.ttf */; };
+		4E6CAD9C1A920214002D5A9C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CAD9A1A92020E002D5A9C /* Entypo.ttf */; };
+		4E6CAD9E1A924834002D5A9C /* Inconsolata.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CAD9D1A924834002D5A9C /* Inconsolata.otf */; };
+		4E6CAD9F1A924834002D5A9C /* Inconsolata.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6CAD9D1A924834002D5A9C /* Inconsolata.otf */; };
 		4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */; };
 		4E76FD791A63220A009722A0 /* SLPrintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */; };
 		4E76FD7B1A6353E5009722A0 /* SLRepeatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76FD7A1A6353E5009722A0 /* SLRepeatTableViewCell.swift */; };
@@ -35,6 +51,14 @@
 		4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */; };
 		4E93B72D1A56FB3800407EE6 /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72C1A56FB3800407EE6 /* BlockType.swift */; };
 		4E93B7301A56FC5000407EE6 /* SLBlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93B72F1A56FC5000407EE6 /* SLBlankTableViewCell.swift */; };
+		4E9B0F941A98AFC4005CC3BE /* LessonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B0F931A98AFC4005CC3BE /* LessonListTableViewCell.swift */; };
+		4E9B0F951A98B29D005CC3BE /* LessonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B0F931A98AFC4005CC3BE /* LessonListTableViewCell.swift */; };
+		4E9B0F981A98B5D6005CC3BE /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B0F971A98B5D6005CC3BE /* HexagonView.swift */; };
+		4E9B0F991A98B66E005CC3BE /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B0F971A98B5D6005CC3BE /* HexagonView.swift */; };
+		4E9B0F9C1A98DE2D005CC3BE /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B0F9B1A98DE2D005CC3BE /* NavigationBar.swift */; };
+		4E9B0F9D1A98DE2D005CC3BE /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9B0F9B1A98DE2D005CC3BE /* NavigationBar.swift */; };
+		4E9B0FB61A9A51C4005CC3BE /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E9B0FB41A9A51C4005CC3BE /* Montserrat-Bold.ttf */; };
+		4E9B0FB71A9A51C4005CC3BE /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E9B0FB51A9A51C4005CC3BE /* Montserrat-Regular.ttf */; };
 		4ECA42091A57152D002B98ED /* SLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA42081A57152D002B98ED /* SLTableViewCell.swift */; };
 		4ECA420B1A57B503002B98ED /* SLVariableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA420A1A57B503002B98ED /* SLVariableTableViewCell.swift */; };
 		4ECA420F1A57B7F6002B98ED /* FiraSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */; };
@@ -44,8 +68,8 @@
 		4EE792411A8B9D76000A070E /* JavascriptCoreFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7923F1A8B9A58000A070E /* JavascriptCoreFix.m */; };
 		4EE960851A85DD3B00E43C0F /* SlangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960841A85DD3B00E43C0F /* SlangViewModel.swift */; };
 		4EE960861A85DD3B00E43C0F /* SlangViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960841A85DD3B00E43C0F /* SlangViewModel.swift */; };
-		4EE960881A85DDB500E43C0F /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960871A85DDB500E43C0F /* LessonViewController.swift */; };
-		4EE960891A85DDB500E43C0F /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960871A85DDB500E43C0F /* LessonViewController.swift */; };
+		4EE960881A85DDB500E43C0F /* LessonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960871A85DDB500E43C0F /* LessonListViewController.swift */; };
+		4EE960891A85DDB500E43C0F /* LessonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE960871A85DDB500E43C0F /* LessonListViewController.swift */; };
 		4EE9608C1A85EBFF00E43C0F /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9608B1A85EBFF00E43C0F /* Block.swift */; };
 		4EE9608D1A85EBFF00E43C0F /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9608B1A85EBFF00E43C0F /* Block.swift */; };
 		4EFB9EB41A819CAE0074C618 /* SLVariableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA420A1A57B503002B98ED /* SLVariableTableViewCell.swift */; };
@@ -77,6 +101,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E13DBDD1AAA087300F9D09A /* LessonListViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonListViewController2.swift; sourceTree = "<group>"; };
+		4E1AC8E21A9D10BE00E3404F /* PresentLessonTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentLessonTransitionManager.swift; sourceTree = "<group>"; };
+		4E1AC8E61A9DBEE300E3404F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4E1AC8E91A9DBEFB00E3404F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4E1AC8EC1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissLessonTransitionManager.swift; sourceTree = "<group>"; };
 		4E3104301A83BD9500938AE4 /* UIColor+SLColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SLColors.swift"; sourceTree = "<group>"; };
 		4E3104321A83BE3000938AE4 /* SLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLConstants.swift; sourceTree = "<group>"; };
 		4E3E818C1A81A94C00DCDC88 /* BlockTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTypeSpec.swift; sourceTree = "<group>"; };
@@ -86,8 +115,11 @@
 		4E3E81951A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLPrintTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E3E81971A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRepeatTableViewCellSpec.swift; sourceTree = "<group>"; };
 		4E3E81991A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLIfTableViewCellSpec.swift; sourceTree = "<group>"; };
+		4E46773F1AAA159400FBEAAC /* LessonListTableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonListTableViewCell2.swift; sourceTree = "<group>"; };
 		4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		4E6A27F31A83462300C06761 /* DraggableBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DraggableBlock.swift; path = Language/DraggableBlock.swift; sourceTree = "<group>"; };
+		4E6CAD9A1A92020E002D5A9C /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = Resources/Entypo.ttf; sourceTree = "<group>"; };
+		4E6CAD9D1A924834002D5A9C /* Inconsolata.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inconsolata.otf; sourceTree = "<group>"; };
 		4E76FD761A631A10009722A0 /* SLEndTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLEndTableViewCell.swift; path = Language/SLEndTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD781A63220A009722A0 /* SLPrintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLPrintTableViewCell.swift; path = Language/SLPrintTableViewCell.swift; sourceTree = "<group>"; };
 		4E76FD7A1A6353E5009722A0 /* SLRepeatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLRepeatTableViewCell.swift; path = Language/SLRepeatTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +136,11 @@
 		4E93B72A1A56FA2800407EE6 /* SlangViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlangViewController.swift; path = Language/SlangViewController.swift; sourceTree = "<group>"; };
 		4E93B72C1A56FB3800407EE6 /* BlockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockType.swift; path = Language/BlockType.swift; sourceTree = "<group>"; };
 		4E93B72F1A56FC5000407EE6 /* SLBlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLBlankTableViewCell.swift; path = Language/SLBlankTableViewCell.swift; sourceTree = "<group>"; };
+		4E9B0F931A98AFC4005CC3BE /* LessonListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonListTableViewCell.swift; sourceTree = "<group>"; };
+		4E9B0F971A98B5D6005CC3BE /* HexagonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
+		4E9B0F9B1A98DE2D005CC3BE /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		4E9B0FB41A9A51C4005CC3BE /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		4E9B0FB51A9A51C4005CC3BE /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		4ECA42081A57152D002B98ED /* SLTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLTableViewCell.swift; path = Language/SLTableViewCell.swift; sourceTree = "<group>"; };
 		4ECA420A1A57B503002B98ED /* SLVariableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLVariableTableViewCell.swift; path = Language/SLVariableTableViewCell.swift; sourceTree = "<group>"; };
 		4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FiraSans-Regular.otf"; path = "Resources/FiraSans-Regular.otf"; sourceTree = "<group>"; };
@@ -112,7 +149,7 @@
 		4ECA42141A5BD962002B98ED /* Slang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Slang-Bridging-Header.h"; sourceTree = "<group>"; };
 		4EE7923F1A8B9A58000A070E /* JavascriptCoreFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JavascriptCoreFix.m; path = Language/JavascriptCoreFix.m; sourceTree = "<group>"; };
 		4EE960841A85DD3B00E43C0F /* SlangViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlangViewModel.swift; path = Language/SlangViewModel.swift; sourceTree = "<group>"; };
-		4EE960871A85DDB500E43C0F /* LessonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonViewController.swift; path = App/LessonViewController.swift; sourceTree = "<group>"; };
+		4EE960871A85DDB500E43C0F /* LessonListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LessonListViewController.swift; path = App/LessonListViewController.swift; sourceTree = "<group>"; };
 		4EE9608B1A85EBFF00E43C0F /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Block.swift; path = Language/Block.swift; sourceTree = "<group>"; };
 		556DA372A181B7A9EB7D92F8 /* Pods_SlangTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlangTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC1BD4AF55DFB4F6015F5EE /* Pods_Slang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +206,24 @@
 				6EC1BD4AF55DFB4F6015F5EE /* Pods_Slang.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E1AC8E01A9D0FA500E3404F /* TransistionManagers */ = {
+			isa = PBXGroup;
+			children = (
+				4E1AC8E21A9D10BE00E3404F /* PresentLessonTransitionManager.swift */,
+				4E1AC8EC1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift */,
+			);
+			name = TransistionManagers;
+			sourceTree = "<group>";
+		};
+		4E1AC8E51A9DBEC400E3404F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4E1AC8E61A9DBEE300E3404F /* Extensions.swift */,
+				4E1AC8E91A9DBEFB00E3404F /* Constants.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		4E31042F1A83BD6D00938AE4 /* Utility */ = {
@@ -302,6 +357,17 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		4E9B0F961A98B5B6005CC3BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E9B0F931A98AFC4005CC3BE /* LessonListTableViewCell.swift */,
+				4E46773F1AAA159400FBEAAC /* LessonListTableViewCell2.swift */,
+				4E9B0F971A98B5D6005CC3BE /* HexagonView.swift */,
+				4E9B0F9B1A98DE2D005CC3BE /* NavigationBar.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		4ECA420C1A57B7E1002B98ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,8 +379,12 @@
 		4ECA420D1A57B7E9002B98ED /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				4E6CAD9D1A924834002D5A9C /* Inconsolata.otf */,
+				4E6CAD9A1A92020E002D5A9C /* Entypo.ttf */,
 				4ECA420E1A57B7F6002B98ED /* FiraSans-Regular.otf */,
 				4ECA42121A57DE62002B98ED /* FiraSans-Light.otf */,
+				4E9B0FB41A9A51C4005CC3BE /* Montserrat-Bold.ttf */,
+				4E9B0FB51A9A51C4005CC3BE /* Montserrat-Regular.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -322,8 +392,12 @@
 		4EE9608A1A85DDCA00E43C0F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				4EE960871A85DDB500E43C0F /* LessonViewController.swift */,
+				4EE960871A85DDB500E43C0F /* LessonListViewController.swift */,
+				4E13DBDD1AAA087300F9D09A /* LessonListViewController2.swift */,
 				4E57E1EF1A8D8A8B00BC8BBE /* UIColor+AppColors.swift */,
+				4E9B0F961A98B5B6005CC3BE /* Views */,
+				4E1AC8E01A9D0FA500E3404F /* TransistionManagers */,
+				4E1AC8E51A9DBEC400E3404F /* Utility */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -416,7 +490,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E93B70E1A56DD0400407EE6 /* Images.xcassets in Resources */,
+				4E6CAD9B1A92020E002D5A9C /* Entypo.ttf in Resources */,
+				4E9B0FB71A9A51C4005CC3BE /* Montserrat-Regular.ttf in Resources */,
+				4E9B0FB61A9A51C4005CC3BE /* Montserrat-Bold.ttf in Resources */,
 				4ECA420F1A57B7F6002B98ED /* FiraSans-Regular.otf in Resources */,
+				4E6CAD9E1A924834002D5A9C /* Inconsolata.otf in Resources */,
 				4ECA42131A57DE62002B98ED /* FiraSans-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +503,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E6CAD9C1A920214002D5A9C /* Entypo.ttf in Resources */,
+				4E6CAD9F1A924834002D5A9C /* Inconsolata.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,26 +609,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EE960851A85DD3B00E43C0F /* SlangViewModel.swift in Sources */,
+				4E1AC8ED1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift in Sources */,
 				4E57E1F01A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */,
 				4E93B72B1A56FA2800407EE6 /* SlangViewController.swift in Sources */,
 				4E93B70C1A56DD0400407EE6 /* AppDelegate.swift in Sources */,
 				4E8D54701A8E03F100C92702 /* ConsoleView.swift in Sources */,
 				4E3104311A83BD9500938AE4 /* UIColor+SLColors.swift in Sources */,
 				4E93B72D1A56FB3800407EE6 /* BlockType.swift in Sources */,
-				4EE960881A85DDB500E43C0F /* LessonViewController.swift in Sources */,
+				4E4677401AAA159400FBEAAC /* LessonListTableViewCell2.swift in Sources */,
+				4E9B0F941A98AFC4005CC3BE /* LessonListTableViewCell.swift in Sources */,
+				4EE960881A85DDB500E43C0F /* LessonListViewController.swift in Sources */,
 				4E93B7301A56FC5000407EE6 /* SLBlankTableViewCell.swift in Sources */,
+				4E9B0F981A98B5D6005CC3BE /* HexagonView.swift in Sources */,
+				4E9B0F9C1A98DE2D005CC3BE /* NavigationBar.swift in Sources */,
 				4E3104331A83BE3000938AE4 /* SLConstants.swift in Sources */,
 				4E6A27F41A83462300C06761 /* DraggableBlock.swift in Sources */,
 				4EE792401A8B9A58000A070E /* JavascriptCoreFix.m in Sources */,
 				4E76FD771A631A10009722A0 /* SLEndTableViewCell.swift in Sources */,
 				4ECA420B1A57B503002B98ED /* SLVariableTableViewCell.swift in Sources */,
+				4E1AC8E31A9D10BE00E3404F /* PresentLessonTransitionManager.swift in Sources */,
 				4ECA42091A57152D002B98ED /* SLTableViewCell.swift in Sources */,
 				4E76FD7F1A640DB7009722A0 /* SLIfTableViewCell.swift in Sources */,
 				4ECA42111A57C2A1002B98ED /* SLExtensions.swift in Sources */,
+				4E1AC8E71A9DBEE300E3404F /* Extensions.swift in Sources */,
 				4E76FD791A63220A009722A0 /* SLPrintTableViewCell.swift in Sources */,
 				4EE9608C1A85EBFF00E43C0F /* Block.swift in Sources */,
+				4E13DBDE1AAA087300F9D09A /* LessonListViewController2.swift in Sources */,
 				4E76FD7D1A640D9C009722A0 /* SLElseTableViewCell.swift in Sources */,
 				4E76FD7B1A6353E5009722A0 /* SLRepeatTableViewCell.swift in Sources */,
+				4E1AC8EA1A9DBEFB00E3404F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,32 +646,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EFB9EBE1A819D5C0074C618 /* SlangViewController.swift in Sources */,
+				4E1AC8EE1A9DC2CC00E3404F /* DismissLessonTransitionManager.swift in Sources */,
+				4E1AC8EB1A9DBEFB00E3404F /* Constants.swift in Sources */,
 				4E3104361A83BE7900938AE4 /* SLConstants.swift in Sources */,
+				4E4677411AAA159400FBEAAC /* LessonListTableViewCell2.swift in Sources */,
 				4E3E81981A81DEEB00DCDC88 /* SLRepeatTableViewCellSpec.swift in Sources */,
 				4EFB9EB71A819D550074C618 /* SLEndTableViewCell.swift in Sources */,
 				4EFB9EB91A819D550074C618 /* SLRepeatTableViewCell.swift in Sources */,
 				4E57E1F11A8D8A8B00BC8BBE /* UIColor+AppColors.swift in Sources */,
 				4EFB9EBB1A819D550074C618 /* SLElseTableViewCell.swift in Sources */,
+				4E9B0F951A98B29D005CC3BE /* LessonListTableViewCell.swift in Sources */,
 				4EFB9EB61A819D550074C618 /* SLBlankTableViewCell.swift in Sources */,
+				4E13DBDF1AAA087700F9D09A /* LessonListViewController2.swift in Sources */,
 				4E3E81921A81DE0800DCDC88 /* SLVariableTableViewCellSpec.swift in Sources */,
 				4EFB9EB51A819D4E0074C618 /* SLTableViewCell.swift in Sources */,
 				4EFB9EB41A819CAE0074C618 /* SLVariableTableViewCell.swift in Sources */,
 				4E3104351A83BE7600938AE4 /* UIColor+SLColors.swift in Sources */,
 				4EFB9EBD1A819D5A0074C618 /* BlockType.swift in Sources */,
+				4E1AC8E41A9D10BE00E3404F /* PresentLessonTransitionManager.swift in Sources */,
 				4EE792411A8B9D76000A070E /* JavascriptCoreFix.m in Sources */,
 				4E3E81901A81DD0C00DCDC88 /* SLBlankTableViewCellSpec.swift in Sources */,
 				4EFB9EB81A819D550074C618 /* SLPrintTableViewCell.swift in Sources */,
 				4E3E81941A81DE3E00DCDC88 /* SLEndTableViewCellSpec.swift in Sources */,
 				4E3E819A1A81DFA100DCDC88 /* SLIfTableViewCellSpec.swift in Sources */,
 				4E8D54711A8E03F100C92702 /* ConsoleView.swift in Sources */,
-				4EE960891A85DDB500E43C0F /* LessonViewController.swift in Sources */,
+				4EE960891A85DDB500E43C0F /* LessonListViewController.swift in Sources */,
 				4EE9608D1A85EBFF00E43C0F /* Block.swift in Sources */,
 				4EFB9EBA1A819D550074C618 /* SLIfTableViewCell.swift in Sources */,
 				4EE960861A85DD3B00E43C0F /* SlangViewModel.swift in Sources */,
+				4E9B0F991A98B66E005CC3BE /* HexagonView.swift in Sources */,
 				4E3E818D1A81A94C00DCDC88 /* BlockTypeSpec.swift in Sources */,
 				4EFB9EBC1A819D580074C618 /* SLExtensions.swift in Sources */,
+				4E9B0F9D1A98DE2D005CC3BE /* NavigationBar.swift in Sources */,
 				4E3E81961A81DE7700DCDC88 /* SLPrintTableViewCellSpec.swift in Sources */,
 				4E7CD3DC1A807BCD0031BF4A /* SLElseTableViewCellSpec.swift in Sources */,
+				4E1AC8E81A9DBEE300E3404F /* Extensions.swift in Sources */,
 				4E6A27F51A83482800C06761 /* DraggableBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

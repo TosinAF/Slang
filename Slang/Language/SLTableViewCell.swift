@@ -58,8 +58,9 @@ class SLTableViewCell: UITableViewCell {
 
     lazy var numberLabel: UILabel = {
         let label = UILabel()
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "Avenir", size: 10)
+        label.setTranslatesAutoresizingMaskIntoConstraints(false)
         return label
     }()
 
@@ -79,9 +80,10 @@ class SLTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        backgroundColor = UIColor.PrimaryBrandColor()
         selectionStyle = .None
 
+        
         contentView.addSubview(containerView)
         contentView.addSubview(numberLabel)
         containerView.addSubview(typeLabel)
@@ -124,7 +126,8 @@ class SLTableViewCell: UITableViewCell {
     }
     
     func configureForState(state: BlockState) {
-        
+        // Method to be overrided for subclasses 
+        // to configure their state stored in a block
     }
     
     func configureWithBlock(block: Block) {

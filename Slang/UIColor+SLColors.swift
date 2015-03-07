@@ -15,7 +15,7 @@ extension UIColor {
     }
 
     class func SLBlankColor() -> UIColor {
-        return UIColor.grayColor()
+        return UIColor.whiteColor()
     }
 
     class func SLVariableColor() -> UIColor {

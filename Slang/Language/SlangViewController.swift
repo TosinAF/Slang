@@ -24,6 +24,22 @@ class SlangViewController: UIViewController {
     
     // MARK: - Views
     
+    lazy var navigationBar: UINavigationBar = {
+        let image = UIImage(named: "SlangLogo")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .ScaleAspectFit
+        
+        let navItem = UINavigationItem(title: "Slang")
+        navItem.titleView = imageView
+        navItem.leftBarButtonItem = UIBarButtonItem(customView: self.dismissButton)
+        navItem.rightBarButtonItem = UIBarButtonItem(customView: self.executeButton)
+        
+        let navigationBar = UINavigationBar()
+        navigationBar.pushNavigationItem(navItem, animated: false)
+        navigationBar.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return navigationBar
+    }()
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -33,6 +49,7 @@ class SlangViewController: UIViewController {
             tableView.registerClass(type.tableViewCellClass,
                 forCellReuseIdentifier: type.identifier)
         }
+        tableView.backgroundColor = UIColor.PrimaryBrandColor()
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
         return tableView
     }()
@@ -48,16 +65,6 @@ class SlangViewController: UIViewController {
     }()
     
     lazy var executeButton: UIButton = {
-        let button = UIButton(frame: CGRectMake(0, 0, 28, 28))
-        button.backgroundColor = UIColor.whiteColor()
-        button.layer.borderColor = UIColor.PrimaryBrandColor().CGColor
-        button.layer.borderWidth = 12
-        button.layer.cornerRadius = 14
-        button.addTarget(self, action: "executeButtonTapped", forControlEvents: .TouchUpInside)
-        return button
-    }()
-    
-    lazy var executeButton2: UIButton = {
         let button = UIButton(frame: CGRectMake(0, 0, 24, 24))
         button.backgroundColor = UIColor.PrimaryBrandColor()
         button.layer.borderColor = UIColor.whiteColor().CGColor
@@ -65,11 +72,21 @@ class SlangViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.addTarget(self, action: "executeButtonTapped", forControlEvents: .TouchUpInside)
         return button
-        }()
+    }()
+    
+    lazy var dismissButton: UIButton = {
+        let button = UIButton(frame: CGRectMake(0, 0, 24, 24))
+        button.setTitle("\u{274C}", forState: .Normal)
+        button.titleLabel?.font = UIFont(name: "Entypo", size: 60.0)
+        button.addTarget(self, action: "onDismissButtonTap", forControlEvents: .TouchUpInside)
+        return button
+    }()
     
     lazy var consoleView: ConsoleView = {
         let consoleView = ConsoleView(frame: CGRectZero)
-        consoleView.log = "Hello"
+        consoleView.dismissButtonAction = { () in
+            self.hideConsoleView()
+        }
         consoleView.fillColor = UIColor.PrimaryBrandColor()
         consoleView.damping = 0.7
         consoleView.initialSpringVelocity = 0.8
@@ -83,41 +100,48 @@ class SlangViewController: UIViewController {
         super.viewDidLoad()
         title = "Slang"
         
-         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: executeButton2)
-        
+        view.backgroundColor = UIColor.PrimaryBrandColor()
+        view.addSubview(navigationBar)
         view.addSubview(tableView)
-        view.addSubview(executeButton)
+        view.addSubview(consoleView)
         
         for (key, block) in blocks {
             view.addSubview(block)
         }
         
-        view.addSubview(consoleView)
-        
         layoutSubviews()
         
-        let tap = UITapGestureRecognizer(target: self, action:"dismissKeyboard")
+        let tap = UITapGestureRecognizer(target: self, action:"dismissKeyboardAndConsole")
         view.addGestureRecognizer(tap)
     }
-
+    
     // MARK: - Layout
 
     func layoutSubviews() {
+        
+        constrain(navigationBar) { navigationBar in
+            navigationBar.width == navigationBar.superview!.width
+            navigationBar.height == 64
+            navigationBar.top == navigationBar.superview!.top
+        }
 
-        constrain(tableView) { tableView in
+        constrain(tableView, navigationBar) { tableView, navigationBar in
             tableView.width == tableView.superview!.width
-            tableView.height == tableView.superview!.height * 0.5
-            tableView.top == tableView.superview!.top
+            tableView.height == tableView.superview!.height * 0.5 - 64
+            tableView.top == navigationBar.bottom
+        }
+        
+        constrain(consoleView) { consoleView in
+            consoleView.width == consoleView.superview!.width
+            consoleView.height == consoleView.superview!.height * 0.5
+            consoleView.left == consoleView.superview!.left
         }
         
         constrain(consoleView, replace: consoleLayoutGroup) { consoleView in
-            consoleView.width == consoleView.superview!.width
-            consoleView.height == consoleView.superview!.height
-            consoleView.top == consoleView.superview!.bottom
+            consoleView.top == consoleView.superview!.bottom; return
         }
 
         layoutBlocks()
-        layoutExecuteButton()
     }
 
     func layoutBlocks() {
@@ -129,7 +153,7 @@ class SlangViewController: UIViewController {
         let blockHeight: CGFloat = 35.0
 
         var posX: CGFloat = 20.0
-        var posY: CGFloat = self.view.frame.size.height * 0.5
+        var posY: CGFloat = self.view.frame.size.height * 0.5 + 34
 
         for i in [0,3] {
             for j in 0..<columnLength {
@@ -155,21 +179,23 @@ class SlangViewController: UIViewController {
         blockCenterPoints[type.identifier] = block.center
     }
     
-    func layoutExecuteButton() {
-        var center = blockCenterPoints[BlockType.Print.identifier]!
-        center.x += 115
-        executeButton.center = center
-    }
-    
     // MARK: - Actions
     
     func executeButtonTapped() {
+        view.endEditing(true)
+        let log = viewModel.execute()
+        consoleView.log = log
         displayConsoleView()
-        //let output = viewModel.execute()
     }
     
-    func dismissKeyboard() {
+    func dismissKeyboardAndConsole() {
         view.endEditing(true)
+        hideConsoleView()
+    }
+    
+    func onDismissButtonTap() {
+        view.endEditing(true)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
@@ -210,10 +236,22 @@ extension SlangViewController {
         view.bringSubviewToFront(consoleView)
         
         constrain(consoleView, tableView, replace: consoleLayoutGroup) { consoleView, tableView in
-            consoleView.width == consoleView.superview!.width
-            consoleView.height == consoleView.superview!.height * 0.5
-            consoleView.top == tableView.bottom + 30
+            consoleView.top == tableView.bottom + 30; return
         }
+        
+        animateConsoleViewLayout()
+    }
+    
+    func hideConsoleView() {
+        
+        constrain(consoleView, tableView, replace: consoleLayoutGroup) { consoleView, tableView in
+            consoleView.top == consoleView.superview!.bottom; return
+        }
+        
+        animateConsoleViewLayout()
+    }
+    
+    private func animateConsoleViewLayout() {
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9,
             initialSpringVelocity: 0.9,
@@ -273,5 +311,34 @@ extension SlangViewController: SLTableViewCellDelegate {
     func tableViewCell(tableViewCellAtIndex index: Int, didUpdateWithBlock block: Block) {
         viewModel.updateBlock(atIndex: index, withBlock: block)
     }
+}
+
+extension UINavigationBar {
+    
+    func hideBottomHairline() {
+        let navigationBarImageView = hairlineImageViewInNavigationBar(self)
+        navigationBarImageView!.hidden = true
+    }
+    
+    func showBottomHairline() {
+        let navigationBarImageView = hairlineImageViewInNavigationBar(self)
+        navigationBarImageView!.hidden = false
+    }
+    
+    private func hairlineImageViewInNavigationBar(view: UIView) -> UIImageView? {
+        if view.isKindOfClass(UIImageView) && view.bounds.height <= 1.0 {
+            return (view as UIImageView)
+        }
+        
+        let subviews = (view.subviews as [UIView])
+        for subview: UIView in subviews {
+            if let imageView: UIImageView = hairlineImageViewInNavigationBar(subview)? {
+                return imageView
+            }
+        }
+        
+        return nil
+    }
+    
 }
 
