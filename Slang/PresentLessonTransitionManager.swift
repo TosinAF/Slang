@@ -32,33 +32,46 @@ class PresentLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         
         frame.origin.x += frame.size.width
         toVC.view.frame = frame
-        toVC.view.transform = CGAffineTransformMakeScale(0.5, 0.5)
         toVC.view.userInteractionEnabled = false
+        
+        println(fromVC.view.frame)
         
         // Configure Container
         
-        containerView.backgroundColor = UIColor.PrimaryBrandColor()
+        containerView.backgroundColor = UIColor.whiteColor()
         containerView.addSubview(fromVC.view)
         containerView.addSubview(toVC.view)
         
+        
         // Create POP Animations
         
-        let scaleDownFromView = createScaleAnimation(size: CGSizeMake(0.5, 0.5))
+        var frame2 = containerView.frame
+        frame2.origin.x = -containerView.frame.width
+        //frame2.size.width *= 0.8
+        //frame2.size.height *= 0.8
+        let frameAnim = createFrameAnimation(frame: frame2)
+        let scaleDownFromView = createScaleAnimation(from: CGSizeMake(1.0, 1.0), to: CGSizeMake(0.8, 0.8))
         let fromViewXTranslation = createXTranslationAnimation(translation: -containerView.frame.width)
         
-        let scaleUpToView = createScaleAnimation(size: CGSizeMake(1.0, 1.0))
+        
+        let scaleUpToView = createScaleAnimation(from: CGSizeMake(0.8, 0.8), to: CGSizeMake(1.0, 1.0))
         let toViewXTranslation = createXTranslationAnimation(translation: -containerView.frame.width)
         
         // Start Animation
     
-        fromVC.view.layer.pop_addAnimation(scaleDownFromView, forKey: "scale")
+        fromVC.view.pop_addAnimation(frameAnim, forKey: "frame")
+        //fromVC.view.pop_addAnimation(scaleDownFromView, forKey: "scale")
+        
+        
+        
         fromVC.view.layer.pop_addAnimation(fromViewXTranslation, forKey: "xTranslation")
         
-        toVC.view.layer.pop_addAnimation(scaleUpToView, forKey: "scale")
+        toVC.view.pop_addAnimation(scaleUpToView, forKey: "scale")
         toVC.view.layer.pop_addAnimation(toViewXTranslation, forKey: "xTranslation")
         
         delay(animationDuration) {
             toVC.view.userInteractionEnabled = true
+            
             transitionContext.completeTransition(true)
         }
     }
@@ -69,10 +82,11 @@ class PresentLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
     
     // MARK: Utility Functions
     
-    func createScaleAnimation(#size: CGSize) -> POPBasicAnimation  {
-        let scaleXYAnim = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY)
+    func createScaleAnimation(from start: CGSize, to finish: CGSize) -> POPBasicAnimation  {
+        let scaleXYAnim = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
         scaleXYAnim.duration = 0.5
-        scaleXYAnim.toValue = NSValue(CGSize: size)
+        scaleXYAnim.fromValue = NSValue(CGSize: start)
+        scaleXYAnim.toValue = NSValue(CGSize: finish)
         return scaleXYAnim
     }
     
@@ -81,5 +95,12 @@ class PresentLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         xTranslateAnim.duration = 0.5
         xTranslateAnim.toValue = translation
         return xTranslateAnim
+    }
+    
+    func createFrameAnimation(#frame: CGRect) -> POPBasicAnimation  {
+        let frameAnim = POPBasicAnimation(propertyNamed: kPOPViewFrame)
+        frameAnim.duration = 0.5
+        frameAnim.toValue = NSValue(CGRect: frame)
+        return frameAnim
     }
 }

@@ -28,25 +28,22 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         // Set Initial Conditons
         
         var frame = containerView.frame
-        fromVC.view.frame = frame
-        
-        frame.origin.x -= frame.size.width * 2
+        frame.origin.x  = -containerView.frame.size.width / 2
         toVC.view.frame = frame
-        toVC.view.transform = CGAffineTransformMakeScale(0.1, 0.1)
         toVC.view.userInteractionEnabled = false
         
         // Configure Container
         
-        containerView.backgroundColor = UIColor.PrimaryBrandColor()
-        containerView.addSubview(fromVC.view)
+        containerView.backgroundColor = UIColor.whiteColor()
         containerView.addSubview(toVC.view)
+        containerView.addSubview(fromVC.view)
         
         // Create POP Animations
         
-        let scaleDownFromView = createScaleAnimation(size: CGSizeMake(0.5, 0.5))
         let fromViewXTranslation = createXTranslationAnimation(translation: containerView.frame.width)
+        let scaleDownFromView = createScaleAnimation(from: CGSizeMake(1.0, 1.0), to: CGSizeMake(0.8, 0.8))
         
-        let scaleUpToView = createScaleAnimation(size: CGSizeMake(1.0, 1.0))
+        let scaleUpToView = createScaleAnimation(from: CGSizeMake(0.8, 0.8), to: CGSizeMake(1.0, 1.0))
         let frameAnim = createFrameAnimation(frame: containerView.frame)
         
         // Start Animation
@@ -73,10 +70,11 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
     
     // MARK: Utility Functions
     
-    func createScaleAnimation(#size: CGSize) -> POPBasicAnimation  {
+    func createScaleAnimation(from start: CGSize, to final: CGSize) -> POPBasicAnimation  {
         let scaleXYAnim = POPBasicAnimation(propertyNamed: kPOPLayerScaleXY)
         scaleXYAnim.duration = 0.5
-        scaleXYAnim.toValue = NSValue(CGSize: size)
+        scaleXYAnim.fromValue = NSValue(CGSize: start)
+        scaleXYAnim.toValue = NSValue(CGSize: final)
         return scaleXYAnim
     }
     

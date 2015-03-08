@@ -10,8 +10,23 @@ import UIKit
 import Cartography
 
 class LessonListTableViewCell: UITableViewCell {
-
+    
     // MARK: - Properties
+    
+    lazy var bannerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.PrimaryBrandColor()
+        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return view
+    }()
+    
+    lazy var iconImageView: UIImageView = {
+        let image = UIImage(named: "LearnSlangIcon")
+        let imageView = UIImageView(image: image)
+        imageView.userInteractionEnabled = false
+        imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return imageView
+    }()
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -30,11 +45,11 @@ class LessonListTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var hexagonView: HexagonView = {
-        let hexagonView = HexagonView()
-        hexagonView.backgroundColor = UIColor.whiteColor()
-        hexagonView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        return hexagonView
+    lazy var seperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.slGrayColor()
+        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        return view
     }()
     
     var title: String = "" {
@@ -55,9 +70,11 @@ class LessonListTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .None
         
-        contentView.addSubview(hexagonView)
+        contentView.addSubview(bannerView)
+        bannerView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descLabel)
+        contentView.addSubview(seperatorView)
         
         setNeedsUpdateConstraints()
     }
@@ -71,21 +88,28 @@ class LessonListTableViewCell: UITableViewCell {
     override func updateConstraints() {
         
         let views = [
-            "hexagon": hexagonView,
+            "banner": bannerView,
+            "icon": iconImageView,
             "title": titleLabel,
-            "desc": descLabel
+            "desc": descLabel,
+            "seperator": seperatorView
         ]
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-12-[title]-5-[desc]-12-|", options: nil, metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-12-[hexagon]", options: nil, metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[hexagon]-12-[title]-25-|", options: nil, metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[hexagon]-12-[desc]-25-|", options: nil, metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[banner]-20-|", options: nil, metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[title]-20-|", options: nil, metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[desc]-20-|", options: nil, metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[seperator]-20-|", options: nil, metrics: nil, views: views))
         
-        constrain(hexagonView) { hexagonView in
-            hexagonView.centerY == hexagonView.superview!.centerY; return
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-25-[banner(140)]-15-[title]-15-[desc]-25-[seperator(1)]|", options: nil, metrics: nil, views: views))
+        
+        constrain(iconImageView) { icon in
+            icon.centerX == icon.superview!.centerX
+            icon.centerY == icon.superview!.centerY
+            icon.width == 80
+            icon.height == 80
         }
         
         super.updateConstraints()
     }
-
+    
 }

@@ -70,7 +70,6 @@ class ConsoleView: BendableView {
     // MARK: - Actions
     
     func onDismissButtonTap() {
-        println("Dismiss Button Tapped")
         dismissButtonAction?()
     }
 }

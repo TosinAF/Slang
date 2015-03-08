@@ -90,14 +90,21 @@ class SlangViewController: UIViewController {
         consoleView.fillColor = UIColor.PrimaryBrandColor()
         consoleView.damping = 0.7
         consoleView.initialSpringVelocity = 0.8
+        consoleView.alpha = 0.0
         consoleView.setTranslatesAutoresizingMaskIntoConstraints(false)
         return consoleView
     }()
 
     // MARK: - View Lifecycle
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
         title = "Slang"
         
         view.backgroundColor = UIColor.PrimaryBrandColor()
@@ -113,6 +120,11 @@ class SlangViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action:"dismissKeyboardAndConsole")
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
     }
     
     // MARK: - Layout
@@ -184,6 +196,7 @@ class SlangViewController: UIViewController {
     func executeButtonTapped() {
         view.endEditing(true)
         let log = viewModel.execute()
+        println(log)
         consoleView.log = log
         displayConsoleView()
     }
@@ -233,6 +246,7 @@ extension SlangViewController {
     
     func displayConsoleView() {
         
+        consoleView.alpha = 1.0
         view.bringSubviewToFront(consoleView)
         
         constrain(consoleView, tableView, replace: consoleLayoutGroup) { consoleView, tableView in
@@ -249,6 +263,9 @@ extension SlangViewController {
         }
         
         animateConsoleViewLayout()
+        delay(0.5, { () -> () in
+            self.consoleView.alpha = 0.0
+        })
     }
     
     private func animateConsoleViewLayout() {

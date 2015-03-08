@@ -12,13 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var homeViewController: UIViewController = {
-        let homeViewController = LessonListViewController2()
+        let homeViewController = LessonListViewController()
         return homeViewController
     }()
 
     lazy var window: UIWindow = {
         let win = UIWindow(frame: UIScreen.mainScreen().bounds)
-        win.backgroundColor = UIColor.whiteColor()
+        win.backgroundColor = UIColor.blackColor()
         win.rootViewController = UINavigationController(rootViewController:self.homeViewController)
         return win
     }()
@@ -30,8 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setup() {
-        //UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+        //UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
         UINavigationBar.appearance().translucent = false
         UINavigationBar.appearance().barTintColor = UIColor.PrimaryBrandColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
