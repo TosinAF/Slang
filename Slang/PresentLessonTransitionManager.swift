@@ -34,14 +34,11 @@ class PresentLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         toVC.view.frame = frame
         toVC.view.userInteractionEnabled = false
         
-        println(fromVC.view.frame)
-        
         // Configure Container
         
         containerView.backgroundColor = UIColor.whiteColor()
         containerView.addSubview(fromVC.view)
         containerView.addSubview(toVC.view)
-        
         
         // Create POP Animations
         
@@ -60,18 +57,12 @@ class PresentLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         // Start Animation
     
         fromVC.view.pop_addAnimation(frameAnim, forKey: "frame")
-        //fromVC.view.pop_addAnimation(scaleDownFromView, forKey: "scale")
-        
-        
-        
-        fromVC.view.layer.pop_addAnimation(fromViewXTranslation, forKey: "xTranslation")
         
         toVC.view.pop_addAnimation(scaleUpToView, forKey: "scale")
         toVC.view.layer.pop_addAnimation(toViewXTranslation, forKey: "xTranslation")
         
         delay(animationDuration) {
             toVC.view.userInteractionEnabled = true
-            
             transitionContext.completeTransition(true)
         }
     }
