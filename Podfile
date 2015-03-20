@@ -5,7 +5,7 @@ use_frameworks!
 def import_pods
     pod 'pop'
     pod 'Cartography'
-    pod 'AHKBendableView', :git => 'https://github.com/TosinAF/AHKBendableView'
+    pod 'AHKBendableView', :git => 'https://github.com/fastred/AHKBendableView.git'
 end
 
 target :"Slang" do
@@ -16,5 +16,5 @@ end
 target :"SlangTests" do
     import_pods
     pod 'Quick'
-    pod 'Nimble'
+    pod 'Nimble', '0.3.0'
 end

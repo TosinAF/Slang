@@ -1,4 +1,4 @@
-# Cartography
+# Cartography :iphone::triangular_ruler:
 
 <a href="https://github.com/Carthage/Carthage/issues/179">
     <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" align="right" vspace="2px">
@@ -9,6 +9,9 @@
 
 Set up your Auto Layout constraints declaratively and without any stringly
 typing!
+
+If you end up using Cartography in production, I'd love to hear from you. You
+can reach me through [Twitter] or [email].
 
 ## How to use
 
@@ -139,16 +142,25 @@ layout(view) { view in
 Note that declaring compound attributes returns multiple constraints at once:
 
 ```swift
-var constraints: NSLayoutConstraint[]?
+var constraints: [NSLayoutConstraint]?
 
 layout(view) { view in
     constraints = (view.size == view.superview!.size ~ 100); return
 }
 ```
 
+## Support
+
+Please, don't hesitate to [file an
+issue](https://github.com/robb/Cartography/issues/new) if you have questions.
+
 ## About Cartography
 
-Cartography was inspired by the excellent [FLKAutoLayout] by [Florian Kugler][florian].
+Cartography was built by [Robb Böhnke][me] and was inspired by the excellent
+[FLKAutoLayout] by [Florian Kugler][florian].
 
 [flkautolayout]: https://github.com/floriankugler/FLKAutoLayout
-[florian]: https://github.com/floriankugler
+[florian]:       https://github.com/floriankugler
+[me]:            http://robb.is
+[twitter]:       https://twitter.com/ceterum_censeo
+[email]:         mailto:robb@robb.is

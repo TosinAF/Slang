@@ -196,7 +196,6 @@ class SlangViewController: UIViewController {
     func executeButtonTapped() {
         view.endEditing(true)
         let log = viewModel.execute()
-        println(log)
         consoleView.log = log
         displayConsoleView()
     }

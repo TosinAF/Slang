@@ -1,34 +1,34 @@
 PODS:
   - AHKBendableView (0.2.0)
-  - Cartography (0.2.0)
+  - Cartography (0.2.1)
   - Nimble (0.3.0)
   - pop (1.0.7)
   - Quick (0.2.2)
   - Reveal-iOS-SDK (1.5.1)
 
 DEPENDENCIES:
-  - AHKBendableView (from `https://github.com/TosinAF/AHKBendableView`)
+  - AHKBendableView (from `https://github.com/fastred/AHKBendableView.git`)
   - Cartography
-  - Nimble
+  - Nimble (= 0.3.0)
   - pop
   - Quick
   - Reveal-iOS-SDK
 
 EXTERNAL SOURCES:
   AHKBendableView:
-    :git: https://github.com/TosinAF/AHKBendableView
+    :git: https://github.com/fastred/AHKBendableView.git
 
 CHECKOUT OPTIONS:
   AHKBendableView:
-    :commit: fb886436a0177160c3433691fd1798b4264a4c59
-    :git: https://github.com/TosinAF/AHKBendableView
+    :commit: 3b498cb56dda5462fc36c5cb30a6ab1b42b7755f
+    :git: https://github.com/fastred/AHKBendableView.git
 
 SPEC CHECKSUMS:
   AHKBendableView: 263703c278c6f53d699a9acd72b6574eb3c5bb8d
-  Cartography: 82082ab11fbb158499ca8d05ac74e18ae26da01d
+  Cartography: 9efb847f5068db052df1f8627e70382e37e17184
   Nimble: a4d9d978129e83d73e33b7d8bce57443bd556068
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   Quick: 7b89ff625e72ef931c2a9ef2f25ac3a9d2457763
   Reveal-iOS-SDK: dcfeb671c7da222c85f18f866da2ce88de075524
 
-COCOAPODS: 0.36.0.rc.1
+COCOAPODS: 0.36.0
