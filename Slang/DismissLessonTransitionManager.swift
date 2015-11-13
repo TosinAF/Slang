@@ -27,24 +27,24 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         
         // Set Initial Conditons
         
-        var frame = containerView.frame
-        frame.origin.x  = -containerView.frame.size.width / 2
+        var frame = containerView!.frame
+        frame.origin.x  = -containerView!.frame.size.width / 2
         toVC.view.frame = frame
         toVC.view.userInteractionEnabled = false
         
         // Configure Container
         
-        containerView.backgroundColor = UIColor.whiteColor()
-        containerView.addSubview(toVC.view)
-        containerView.addSubview(fromVC.view)
+        containerView!.backgroundColor = UIColor.whiteColor()
+        containerView!.addSubview(toVC.view)
+        containerView!.addSubview(fromVC.view)
         
         // Create POP Animations
         
-        let fromViewXTranslation = createXTranslationAnimation(translation: containerView.frame.width)
+        let fromViewXTranslation = createXTranslationAnimation(translation: containerView!.frame.width)
         let scaleDownFromView = createScaleAnimation(from: CGSizeMake(1.0, 1.0), to: CGSizeMake(0.8, 0.8))
         
         let scaleUpToView = createScaleAnimation(from: CGSizeMake(0.8, 0.8), to: CGSizeMake(1.0, 1.0))
-        let frameAnim = createFrameAnimation(frame: containerView.frame)
+        let frameAnim = createFrameAnimation(frame: containerView!.frame)
         
         // Start Animation
         
@@ -64,7 +64,7 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         }
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return animationDuration
     }
     
@@ -78,14 +78,14 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         return scaleXYAnim
     }
     
-    func createXTranslationAnimation(#translation: CGFloat) -> POPBasicAnimation  {
+    func createXTranslationAnimation(translation translation: CGFloat) -> POPBasicAnimation  {
         let xTranslateAnim = POPBasicAnimation(propertyNamed: kPOPLayerTranslationX)
         xTranslateAnim.duration = 0.5
         xTranslateAnim.toValue = translation
         return xTranslateAnim
     }
     
-    func createFrameAnimation(#frame: CGRect) -> POPBasicAnimation  {
+    func createFrameAnimation(frame frame: CGRect) -> POPBasicAnimation  {
         let frameAnim = POPBasicAnimation(propertyNamed: kPOPViewFrame)
         frameAnim.duration = 0.5
         frameAnim.toValue = NSValue(CGRect: frame)

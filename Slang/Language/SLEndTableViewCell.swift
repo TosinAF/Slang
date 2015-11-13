@@ -20,7 +20,7 @@ class SLEndTableViewCell: SLTableViewCell {
         label.text = "END"
         label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "Avenir-Light", size: 14)
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -36,7 +36,7 @@ class SLEndTableViewCell: SLTableViewCell {
         setNeedsUpdateConstraints()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -46,7 +46,7 @@ class SLEndTableViewCell: SLTableViewCell {
 
         if (!didUpdateConstraints) {
 
-            layout(titleLabel) { titleLabel in
+            constrain(titleLabel) { titleLabel in
                 titleLabel.centerX == titleLabel.superview!.centerX
                 titleLabel.centerY == titleLabel.superview!.centerY
             }
