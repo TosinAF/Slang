@@ -46,7 +46,7 @@ class SLPrintTableViewCell: SLTableViewCell {
         setNeedsUpdateConstraints()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -61,8 +61,8 @@ class SLPrintTableViewCell: SLTableViewCell {
                 "infoLabel": infoLabel
             ]
 
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[textField]-1-[infoLabel]", options: nil, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[textField(>=100)]", options: nil, metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[textField]-1-[infoLabel]", options: [], metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[textField(>=100)]", options: [], metrics: nil, views: views))
 
             constrain(printStatementTextField, infoLabel) { view, view2 in
                 view.centerX == view.superview!.centerX
@@ -105,8 +105,8 @@ extension SLPrintTableViewCell: UITextFieldDelegate {
         
         textField.trimWhitespace()
         
-        let index = max(0, lineNumber.toInt()! - 1)
-        let block = Block.Print(statement: printStatementTextField.text)
+        let index = max(0, Int(lineNumber)! - 1)
+        let block = Block.Print(statement: printStatementTextField.text!)
         delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }

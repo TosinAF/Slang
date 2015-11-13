@@ -27,7 +27,7 @@ class DraggableBlock: UIView {
         label.text = self.type.title
         label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "Avenir-Light", size: 14)
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -46,7 +46,7 @@ class DraggableBlock: UIView {
         self.gestureRecognizers = [panRecognizer]
     }
    
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -54,7 +54,7 @@ class DraggableBlock: UIView {
 
     override func updateConstraints() {
 
-        layout(titleLabel) { titleLabel in
+        constrain(titleLabel) { titleLabel in
             titleLabel.centerX == titleLabel.superview!.centerX
             titleLabel.centerY == titleLabel.superview!.centerY
         }
@@ -74,17 +74,17 @@ class DraggableBlock: UIView {
 
     func detectPan(sender: UIPanGestureRecognizer) {
         if sender.state == .Ended {
-            delegate?.draggableBlock(panGestureDidFinishWithDraggableBlock: sender.view as DraggableBlock)
+            delegate?.draggableBlock(panGestureDidFinishWithDraggableBlock: sender.view as! DraggableBlock)
             isBeingDragged = false
             return
         }
 
-        var translation  = sender.translationInView(self.superview!)
+        let translation  = sender.translationInView(self.superview!)
         self.center = CGPointMake(lastLocation.x + translation.x, lastLocation.y + translation.y)
         isBeingDragged = true
     }
 
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.superview?.bringSubviewToFront(self)
         lastLocation = self.center
     }

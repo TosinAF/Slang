@@ -1,6 +1,0 @@
-framework module pop {
-  umbrella header "Pods-SlangTests-pop-umbrella.h"
-
-  export *
-  module * { export * }
-}

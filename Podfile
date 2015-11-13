@@ -16,5 +16,5 @@ end
 target :"SlangTests" do
     import_pods
     pod 'Quick'
-    pod 'Nimble', '0.3.0'
+    pod 'Nimble'
 end

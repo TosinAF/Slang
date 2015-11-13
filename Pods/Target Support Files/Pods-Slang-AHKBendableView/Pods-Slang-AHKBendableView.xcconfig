@@ -1,1 +1,0 @@
-PODS_SLANG_AHKBENDABLEVIEW_OTHER_LDFLAGS = -framework "QuartzCore"

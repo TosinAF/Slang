@@ -12,82 +12,56 @@ import UIKit
 import AppKit
 #endif
 
-public enum Edges : Compound {
-    case Edges(Context, View)
+public struct Edges: Compound, RelativeCompoundEquality, RelativeCompoundInequality {
+    public let context: Context
+    public let properties: [Property]
 
-    var context: Context {
-        switch (self) {
-            case let .Edges(context, _):
-                return context
-        }
-    }
-
-    var properties: [Property] {
-        switch (self) {
-            case let .Edges(context, view):
-                return [
-                    Edge.Top(context, view),
-                    Edge.Leading(context, view),
-                    Edge.Bottom(context, view),
-                    Edge.Trailing(context, view)
-                ]
-        }
+    internal init(_ context: Context, _ properties: [Property]) {
+        self.context = context
+        self.properties = properties
     }
 }
 
-public func inset(edges: Edges, all: Number) -> Expression<Edges> {
+/// Insets all edges.
+///
+/// - parameter edges: The edges to inset.
+/// - parameter all:   The amount by which to inset all edges, in points.
+///
+/// - returns: A new expression with the inset edges.
+///
+public func inset(edges: Edges, _ all: CGFloat) -> Expression<Edges> {
     return inset(edges, all, all, all, all)
 }
 
-public func inset(edges: Edges, horizontal: Number, vertical: Number) -> Expression<Edges> {
+/// Insets the horizontal and vertical edges.
+///
+/// - parameter edges:      The edges to inset.
+/// - parameter horizontal: The amount by which to inset the horizontal edges, in
+///                    points.
+/// - parameter vertical:   The amount by which to inset the vertical edges, in
+///                    points.
+///
+/// - returns: A new expression with the inset edges.
+///
+public func inset(edges: Edges, _ horizontal: CGFloat, _ vertical: CGFloat) -> Expression<Edges> {
     return inset(edges, vertical, horizontal, vertical, horizontal)
 }
 
-public func inset(edges: Edges, top: Number, leading: Number, bottom: Number, trailing: Number) -> Expression<Edges> {
+/// Insets edges individually.
+///
+/// - parameter edges:    The edges to inset.
+/// - parameter top:      The amount by which to inset the top edge, in points.
+/// - parameter leading:  The amount by which to inset the leading edge, in points.
+/// - parameter bottom:   The amount by which to inset the bottom edge, in points.
+/// - parameter trailing: The amount by which to inset the trailing edge, in points.
+///
+/// - returns: A new expression with the inset edges.
+///
+public func inset(edges: Edges, _ top: CGFloat, _ leading: CGFloat, _ bottom: CGFloat, _ trailing: CGFloat) -> Expression<Edges> {
     return Expression(edges, [
-        Coefficients(1, top.doubleValue),
-        Coefficients(1, leading.doubleValue),
-        Coefficients(1, -bottom.doubleValue),
-        Coefficients(1, -trailing.doubleValue)
+        Coefficients(1, top),
+        Coefficients(1, leading),
+        Coefficients(1, -bottom),
+        Coefficients(1, -trailing)
     ])
-}
-
-// MARK: Equality
-
-public func == (lhs: Edges, rhs: Expression<Edges>) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value)
-}
-
-public func == (lhs: Expression<Edges>, rhs: Edges) -> [NSLayoutConstraint] {
-    return rhs == lhs
-}
-
-public func == (lhs: Edges, rhs: Edges) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, to: rhs)
-}
-
-// MARK: Inequality
-
-public func <= (lhs: Edges, rhs: Edges) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.LessThanOrEqual)
-}
-
-public func >= (lhs: Edges, rhs: Edges) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.GreaterThanOrEqual)
-}
-
-public func <= (lhs: Edges, rhs: Expression<Edges>) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value, relation: NSLayoutRelation.LessThanOrEqual)
-}
-
-public func <= (lhs: Expression<Edges>, rhs: Edges) -> [NSLayoutConstraint] {
-    return rhs >= lhs
-}
-
-public func >= (lhs: Edges, rhs: Expression<Edges>) -> [NSLayoutConstraint] {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients, to: rhs.value, relation: NSLayoutRelation.GreaterThanOrEqual)
-}
-
-public func >= (lhs: Expression<Edges>, rhs: Edges) -> [NSLayoutConstraint] {
-    return rhs <= lhs
 }

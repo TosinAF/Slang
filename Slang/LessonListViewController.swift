@@ -16,14 +16,14 @@ class LessonListViewController: UIViewController {
     lazy var logoImageView: UIImageView = {
         let image = UIImage(named: "SlangLogo-Filled")
         let imageView = UIImageView(image: image)
-        imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy var seperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.SecondaryBrandColor()
-        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -35,7 +35,7 @@ class LessonListViewController: UIViewController {
         tableView.registerClass(LessonListTableViewCell.self, forCellReuseIdentifier: self.CellIdentifier)
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
@@ -86,7 +86,7 @@ extension LessonListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as LessonListTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! LessonListTableViewCell
         cell.title = "Learning Slang"
         cell.desc = "Learn the basics of how the Slang Language works."
         return cell

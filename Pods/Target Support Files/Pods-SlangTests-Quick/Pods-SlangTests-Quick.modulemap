@@ -1,6 +1,0 @@
-framework module Quick {
-  umbrella header "Pods-SlangTests-Quick-umbrella.h"
-
-  export *
-  module * { export * }
-}
