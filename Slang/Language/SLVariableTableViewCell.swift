@@ -90,8 +90,8 @@ class SLVariableTableViewCell: SLTableViewCell {
             ]
 
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[name(>=30)]-10-[seperator]-10-[value(>=30)]", options: .AlignAllCenterY, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[name]-1-[nameIndicator]", options: nil, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[value]-1-[valueIndicator]", options: nil, metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[name]-1-[nameIndicator]", options: [], metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[value]-1-[valueIndicator]", options: [], metrics: nil, views: views))
 
             constrain(nameInfoLabel, variableNameTextField) { nameInfoLabel, variableNameTextField in
                 nameInfoLabel.centerX == variableNameTextField.centerX; return
@@ -141,8 +141,8 @@ extension SLVariableTableViewCell: UITextFieldDelegate {
         
         textField.trimWhitespace()
         
-        let index = max(0, lineNumber.toInt()! - 1)
-        let block = Block.Variable(name: variableNameTextField.text, value: variableValueTextField.text)
+        let index = max(0, Int(lineNumber)! - 1)
+        let block = Block.Variable(name: variableNameTextField.text!, value: variableValueTextField.text!)
         delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return homeViewController
     }()
 
-    lazy var window: UIWindow = {
+    lazy var window: UIWindow? = {
         let win = UIWindow(frame: UIScreen.mainScreen().bounds)
         win.backgroundColor = UIColor.blackColor()
         win.rootViewController = UINavigationController(rootViewController:self.homeViewController)
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setup()
-        window.makeKeyAndVisible()
+        window?.makeKeyAndVisible()
         return true
     }
 

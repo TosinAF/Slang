@@ -36,7 +36,7 @@ class SlangViewController: UIViewController {
         
         let navigationBar = UINavigationBar()
         navigationBar.pushNavigationItem(navItem, animated: false)
-        navigationBar.setTranslatesAutoresizingMaskIntoConstraints(false)
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
         return navigationBar
     }()
     
@@ -50,7 +50,7 @@ class SlangViewController: UIViewController {
                 forCellReuseIdentifier: type.identifier)
         }
         tableView.backgroundColor = UIColor.PrimaryBrandColor()
-        tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
@@ -91,7 +91,7 @@ class SlangViewController: UIViewController {
         consoleView.damping = 0.7
         consoleView.initialSpringVelocity = 0.8
         consoleView.alpha = 0.0
-        consoleView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        consoleView.translatesAutoresizingMaskIntoConstraints = false
         return consoleView
     }()
 
@@ -112,7 +112,7 @@ class SlangViewController: UIViewController {
         view.addSubview(tableView)
         view.addSubview(consoleView)
         
-        for (key, block) in blocks {
+        for (_, block) in blocks {
             view.addSubview(block)
         }
         
@@ -226,12 +226,12 @@ extension SlangViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let block = viewModel.block(atIndex: indexPath.row)
-        let cell = tableView.dequeueReusableCellWithIdentifier(block.type.identifier, forIndexPath: indexPath) as SLTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(block.type.identifier, forIndexPath: indexPath) as! SLTableViewCell
         
         cell.lineNumber = "\(indexPath.row + 1)"
         cell.configureWithBlock(block)
         
-        if contains(BlockType.editableTypes, block.type) {
+        if BlockType.editableTypes.contains(block.type) {
            cell.delegate = self
         }
         
@@ -262,7 +262,7 @@ extension SlangViewController {
         }
         
         animateConsoleViewLayout()
-        delay(0.5, { () -> () in
+        delay(0.5, closure: { () -> () in
             self.consoleView.alpha = 0.0
         })
     }
@@ -271,7 +271,7 @@ extension SlangViewController {
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9,
             initialSpringVelocity: 0.9,
-            options: .BeginFromCurrentState | .AllowUserInteraction,
+            options: [.BeginFromCurrentState, .AllowUserInteraction],
             animations: {
                 self.view.layoutIfNeeded()
             }, completion: nil
@@ -285,7 +285,7 @@ extension SlangViewController: DraggableBlockDelegate {
     
     func draggableBlock(panGestureDidFinishWithDraggableBlock draggableBlock: DraggableBlock) {
 
-        let visibleCells = tableView.visibleCells()
+        let visibleCells = tableView.visibleCells
         for cell in visibleCells {
             
             let cellframe = tableView.convertRect(cell.frame, toView: self.view)
@@ -343,12 +343,12 @@ extension UINavigationBar {
     
     private func hairlineImageViewInNavigationBar(view: UIView) -> UIImageView? {
         if view.isKindOfClass(UIImageView) && view.bounds.height <= 1.0 {
-            return (view as UIImageView)
+            return (view as! UIImageView)
         }
         
         let subviews = (view.subviews as [UIView])
         for subview: UIView in subviews {
-            if let imageView: UIImageView = hairlineImageViewInNavigationBar(subview)? {
+            if let imageView: UIImageView = hairlineImageViewInNavigationBar(subview) {
                 return imageView
             }
         }

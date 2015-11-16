@@ -62,8 +62,8 @@ class SLRepeatTableViewCell: SLTableViewCell {
                 "infoLabel": infoLabel
             ]
 
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[textField]-1-[infoLabel]", options: nil, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[textField(>=100)]", options: nil, metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[textField]-1-[infoLabel]", options: [], metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[textField(>=100)]", options: [], metrics: nil, views: views))
 
             constrain(repeatCountTextField, infoLabel) { view, view2 in
                 view.centerX == view.superview!.centerX
@@ -101,8 +101,8 @@ extension SLRepeatTableViewCell: UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
         textField.trimWhitespace()
         
-        let index = max(0, lineNumber.toInt()! - 1)
-        let block = Block.Repeat(count: repeatCountTextField.text)
+        let index = max(0, Int(lineNumber)! - 1)
+        let block = Block.Repeat(count: repeatCountTextField.text!)
         delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }

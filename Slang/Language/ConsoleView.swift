@@ -28,7 +28,7 @@ class ConsoleView: BendableView {
         textView.font = UIFont(name: "Inconsolata", size: 45.0)
         textView.backgroundColor = UIColor.PrimaryBrandColor()
         textView.textColor = UIColor.ConsoleTextColor()
-        textView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     
@@ -36,7 +36,7 @@ class ConsoleView: BendableView {
         let button = UIButton()
         button.setTitle("\u{274C}", forState: .Normal)
         button.titleLabel?.font = UIFont(name: "Entypo", size: 60.0)
-        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: "onDismissButtonTap", forControlEvents: .TouchUpInside)
         return button
     }()
@@ -54,13 +54,13 @@ class ConsoleView: BendableView {
     override func updateConstraints() {
         super.updateConstraints()
         
-        layout(textView) { textView in
+        constrain(textView) { textView in
             textView.top == textView.superview!.top
             textView.width == textView.superview!.width
             textView.height == textView.superview!.height
         }
         
-        layout(dismissButton) { button in
+        constrain(dismissButton) { button in
             button.height == 30
             button.top == button.superview!.top + 8
             button.right == button.superview!.right - 8

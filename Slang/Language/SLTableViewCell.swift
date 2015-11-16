@@ -51,7 +51,7 @@ class SLTableViewCell: UITableViewCell {
     
     lazy var containerView: UIView = {
         let view = UIView()
-        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.grayColor()
         return view
     }()
@@ -60,7 +60,7 @@ class SLTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "Avenir", size: 10)
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -68,13 +68,13 @@ class SLTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Avenir", size: 10)
         label.textColor = UIColor.whiteColor()
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     // MARK: - Initalizers
 
-    override init() {
+    init() {
         fatalError("This is an abstract class & as such an instance of this class should never be created")
     }
 
@@ -105,12 +105,12 @@ class SLTableViewCell: UITableViewCell {
                 "container": containerView
             ]
 
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-25-[numberLabel]-10-[container]-30-|", options: nil, metrics: nil, views: views))
-            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[container]-10-|", options: nil, metrics: nil, views: views))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-25-[numberLabel]-10-[container]-30-|", options: [], metrics: nil, views: views))
+            contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[container]-10-|", options: [], metrics: nil, views: views))
             contentView.addConstraint(NSLayoutConstraint(item: numberLabel, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1, constant: 0))
 
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-6-[typeLabel]", options: nil, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-6-[typeLabel]", options: nil, metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-6-[typeLabel]", options: [], metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-6-[typeLabel]", options: [], metrics: nil, views: views))
 
             didUpdateConstraints = true
         }
@@ -137,22 +137,22 @@ class SLTableViewCell: UITableViewCell {
         switch block {
             
         case .Variable(let name, let value):
-            let cell = self as SLVariableTableViewCell
+            let cell = self as! SLVariableTableViewCell
             cell.name = name
             cell.value = value
             
         case .Repeat(let count):
-            let cell = self as SLRepeatTableViewCell
+            let cell = self as! SLRepeatTableViewCell
             cell.count = count
             
         case .If(let s1, let cond, let s2):
-            let cell = self as SLIfTableViewCell
+            let cell = self as! SLIfTableViewCell
             cell.s1 = s1
             cell.cond = cond
             cell.s2 = s2
             
         case .Print(let statement):
-            let cell = self as SLPrintTableViewCell
+            let cell = self as! SLPrintTableViewCell
             cell.statement = statement
             
         default:
@@ -162,22 +162,22 @@ class SLTableViewCell: UITableViewCell {
     
     // MARK: - Utility Functions
 
-    func createTextfield(#placeholder: String, tag: Int) -> UITextField {
+    func createTextfield(placeholder placeholder: String, tag: Int) -> UITextField {
         let textField = UITextField()
         textField.placeholder = placeholder
         textField.textColor = UIColor.whiteColor()
         textField.font = UIFont(name: "Avenir-Light", size: 14)
         textField.textAlignment = .Center
         textField.tag = tag
-        textField.setTranslatesAutoresizingMaskIntoConstraints(false)
+        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }
 
-    func createInfoLabel(#text: String) -> UILabel {
+    func createInfoLabel(text text: String) -> UILabel {
         let label = UILabel()
         label.text = text
         label.alpha = 0.0
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "Avenir-Light", size: 8)
         return label
@@ -186,7 +186,7 @@ class SLTableViewCell: UITableViewCell {
     func createSeperatorLabel() -> UILabel {
         let label = UILabel()
         label.text = ":"
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.whiteColor()
         label.font = UIFont(name: "Avenir-Light", size: 14)
         return label

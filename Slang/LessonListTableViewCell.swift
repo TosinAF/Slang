@@ -16,7 +16,7 @@ class LessonListTableViewCell: UITableViewCell {
     lazy var bannerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.PrimaryBrandColor()
-        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -24,7 +24,7 @@ class LessonListTableViewCell: UITableViewCell {
         let image = UIImage(named: "LearnSlangIcon")
         let imageView = UIImageView(image: image)
         imageView.userInteractionEnabled = false
-        imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -32,7 +32,7 @@ class LessonListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = UIColor.PrimaryBrandColor()
         label.font = UIFont(name: "Avenir-Light", size: 20)
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -41,14 +41,14 @@ class LessonListTableViewCell: UITableViewCell {
         label.numberOfLines = 2
         label.textColor = UIColor.PrimaryBrandColor()
         label.font = UIFont(name: "Avenir-Light", size: 14)
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var seperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.slGrayColor()
-        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -95,12 +95,12 @@ class LessonListTableViewCell: UITableViewCell {
             "seperator": seperatorView
         ]
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[banner]-20-|", options: nil, metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[title]-20-|", options: nil, metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[desc]-20-|", options: nil, metrics: nil, views: views))
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[seperator]-20-|", options: nil, metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[banner]-20-|", options: [], metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[title]-20-|", options: [], metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[desc]-20-|", options: [], metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|-20-[seperator]-20-|", options: [], metrics: nil, views: views))
         
-        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-25-[banner(140)]-15-[title]-15-[desc]-25-[seperator(1)]|", options: nil, metrics: nil, views: views))
+        contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-25-[banner(140)]-15-[title]-15-[desc]-25-[seperator(1)]|", options: [], metrics: nil, views: views))
         
         constrain(iconImageView) { icon in
             icon.centerX == icon.superview!.centerX

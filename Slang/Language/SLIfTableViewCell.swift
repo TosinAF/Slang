@@ -114,10 +114,10 @@ class SLIfTableViewCell: SLTableViewCell {
             ]
 
             containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[statementOne(>=30)]-10-[seperatorLabelOne]-10-[conditionOperatorTextField]-10-[seperatorLabelTwo]-10-[statementTwo(>=30)]", options: .AlignAllCenterY, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[statementOne]-1-[statementOneInfoLabel]", options: nil, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[statementTwo]-1-[statementTwoInfoLabel]", options: nil, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[conditionOperatorTextField]-1-[conditionOperatorInfoLabel]", options: nil, metrics: nil, views: views))
-            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[conditionOperatorInfoLabel]", options: nil, metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[statementOne]-1-[statementOneInfoLabel]", options: [], metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[statementTwo]-1-[statementTwoInfoLabel]", options: [], metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[conditionOperatorTextField]-1-[conditionOperatorInfoLabel]", options: [], metrics: nil, views: views))
+            containerView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("[conditionOperatorInfoLabel]", options: [], metrics: nil, views: views))
 
             constrain(conditionOperatorTextField) { condTextField in
                 condTextField.centerX == condTextField.superview!.centerX
@@ -173,8 +173,8 @@ extension SLIfTableViewCell: UITextFieldDelegate {
         
         textField.trimWhitespace()
         
-        let index = max(0, lineNumber.toInt()! - 1)
-        let block = Block.If(s1: statementOneTextField.text, condOp: conditionOperatorTextField.text, s2: statementTwoTextField.text)
+        let index = max(0, Int(lineNumber)! - 1)
+        let block = Block.If(s1: statementOneTextField.text!, condOp: conditionOperatorTextField.text!, s2: statementTwoTextField.text!)
         delegate?.tableViewCell(tableViewCellAtIndex: index, didUpdateWithBlock: block)
     }
 }

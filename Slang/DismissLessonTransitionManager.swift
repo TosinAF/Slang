@@ -23,7 +23,7 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         
         let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let containerView = transitionContext.containerView()
+        let containerView = transitionContext.containerView()!
         
         // Set Initial Conditons
         
@@ -64,7 +64,7 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         }
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return animationDuration
     }
     
@@ -78,14 +78,14 @@ class DismissLessonTransitionManager: NSObject, UIViewControllerAnimatedTransiti
         return scaleXYAnim
     }
     
-    func createXTranslationAnimation(#translation: CGFloat) -> POPBasicAnimation  {
+    func createXTranslationAnimation(translation translation: CGFloat) -> POPBasicAnimation  {
         let xTranslateAnim = POPBasicAnimation(propertyNamed: kPOPLayerTranslationX)
         xTranslateAnim.duration = 0.5
         xTranslateAnim.toValue = translation
         return xTranslateAnim
     }
     
-    func createFrameAnimation(#frame: CGRect) -> POPBasicAnimation  {
+    func createFrameAnimation(frame frame: CGRect) -> POPBasicAnimation  {
         let frameAnim = POPBasicAnimation(propertyNamed: kPOPViewFrame)
         frameAnim.duration = 0.5
         frameAnim.toValue = NSValue(CGRect: frame)
