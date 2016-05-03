@@ -28,7 +28,7 @@ class SlangViewModel {
         context.evaluateScript("var console = {};")
         context.store("console", sKey: "log") { (msg:ID)->ID in
             
-            self.log = ""
+            //self.log = ""
             if msg == nil { return nil }
             
             if let m = msg.toString?() {
@@ -54,7 +54,8 @@ class SlangViewModel {
     
     func execute() -> String {
         let code = generateCode()
-        //println(code)
+        self.log = ""
+        print(code)
         executeCode(code)
         return log
     }
